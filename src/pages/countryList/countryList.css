@@ -30,3 +30,18 @@
     color: red;
     cursor: pointer;
 }
+
+.addNewBtn{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addNewBtn button{
+  color: #fff;
+  background: #3bb077;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  margin: 20px 0;
+}

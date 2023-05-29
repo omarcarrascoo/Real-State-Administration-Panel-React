@@ -1,18 +1,17 @@
-import "./productList.css";
+import "./countryList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { productRows } from "../../dummyData";
+import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { userRequest } from "../../requestMethods";
-
-export default function ProductList() {
+export default function CountryList() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const getUsers = async () => {
   try {
-    const res = await userRequest.get("industrialProperties");
+    const res = await userRequest.get("countries");
     const updatedUsers = res.data.map((user) => ({
       id: user._id, // Assuming the id is available as _id
       ...user,
@@ -21,15 +20,16 @@ export default function ProductList() {
   } catch (error) {
     console.log(error);
   }
-};
+  };
     getUsers()
   }, []);
+  console.log(users);
   const handleDelete = (id) => {
     setUsers(users.filter((item) => item.id !== id));
   };
-  console.log(users);
+  
   const columns = [
-    { field: "id", headerName: "ID", width: 90 },
+    { field: "id", headerName: "ID", width: 200 },
     {
       field: "product",
       headerName: "Product",
@@ -37,39 +37,20 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImgSpecial" src={`http://localhost:8000/assets/images/${params.row.imgRoute}`} alt="" />
+            <img className="productListImgSpecial" src={params.row.imgRoute} alt="" />
             {params.row.name}
           </div>
         );
       },
     },
-    { field: "h1ES", headerName: "Title", width: 200 },
-    {
-      field: "urlEs",
-      headerName: "URL",
-      width: 160,
-      color: "#fff",
-    },
     {
       field: "urlCountry",
-      headerName: "Country Url",
+      headerName: "URL",
       width: 120,
     },
-    {
-      field: "urlProvince",
-      headerName: "Province Url",
-      width: 120,
-    },
-    {
-      field: "cityUrl",
-      headerName: "City Url",
-      width: 120,
-    },
-    {
-      field: "status",
-      headerName: "Status",
-      width: 120,
-    },
+    { field: "countryName", headerName: "Country", width: 150 },
+    { field: "h1", headerName: "H1", width: 150 },
+    { field: "h2", headerName: "H2", width: 150 },
     {
       field: "action",
       headerName: "Action",
@@ -77,11 +58,11 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/editProvince/" + params.row.id}>
-              <button className="productListEdit">Edit</button>
+            <Link to={"/editCountry/" + params.row.id}>
+              <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
-              className="productListDelete"
+              className="userListDelete"
               onClick={() => handleDelete(params.row.id)}
             />
           </>
@@ -91,12 +72,15 @@ export default function ProductList() {
   ];
 
   return (
-    <div className="productList">
+    <div className="userList">
+      <div className="addNewBtn">
+        <Link to="/addCountry"><button>Add New</button></Link>
+      </div>
       <DataGrid
         rows={users}
         disableSelectionOnClick
         columns={columns}
-        pageSize={14}
+        pageSize={8}
         checkboxSelection
       />
     </div>

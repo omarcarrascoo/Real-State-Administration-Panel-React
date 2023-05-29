@@ -1,12 +1,15 @@
 .product {
   flex: 4;
   padding: 20px;
+  color: #fff;
+  
 }
 
 .productTitleContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #fff;
 }
 
 .productAddButton {
@@ -86,14 +89,15 @@
 
 .productFormLeft > label {
   margin-bottom: 10px;
-  color: gray;
+  color: #fff;
 }
 
 .productFormLeft > input {
   margin-bottom: 10px;
   border: none;
   padding: 5px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #fff;
+  color: #fff;
 }
 
 .productFormLeft >select{
@@ -123,7 +127,7 @@
   border: none;
   padding: 5px;
   border-radius: 5px;
-  background-color: darkblue;
+  background-color: #fff;;
   color:white;
   font-weight: 600;
   cursor: pointer;

@@ -12,6 +12,12 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
+  Flag,
+  LocalPostOfficeTwoTone,
+  LocationOn,
+  ZoomIn,
+  Category,
+  NoteAdd,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -28,18 +34,10 @@ export default function Sidebar() {
               Home
             </li>
             </Link>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
-            </li>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Quick Menu</h3>
+          <h3 className="sidebarTitle">Actions</h3>
           <ul className="sidebarList">
             <Link to="/users" className="link">
               <li className="sidebarListItem">
@@ -50,34 +48,45 @@ export default function Sidebar() {
             <Link to="/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Products
+                Properties
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <AttachMoney className="sidebarIcon" />
-              Transactions
-            </li>
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Reports
-            </li>
+            <Link to="/countries" className="link">
+              <li className="sidebarListItem">
+                <Flag className="sidebarIcon" />
+                Country
+              </li>
+            </Link>
+            <Link to="/provinces" className="link">
+              <li className="sidebarListItem">
+                <LocationOn className="sidebarIcon" />
+                Province
+              </li>
+            </Link>
+            <Link to="/cities" className="link">
+              <li className="sidebarListItem">
+                <ZoomIn className="sidebarIcon" />
+                City / Development
+              </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Notifications</h3>
+          <h3 className="sidebarTitle">Categories</h3>
           <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <MailOutline className="sidebarIcon" />
-              Mail
-            </li>
-            <li className="sidebarListItem">
-              <DynamicFeed className="sidebarIcon" />
-              Feedback
-            </li>
-            <li className="sidebarListItem">
-              <ChatBubbleOutline className="sidebarIcon" />
-              Messages
-            </li>
+            <Link to="/" className="link">
+              <li className="sidebarListItem">
+                <Category className="sidebarIcon" />
+                Categories
+              </li>
+            </Link>
+            <Link to="/" className="link">
+              <li className="sidebarListItem">
+                <NoteAdd className="sidebarIcon" />
+                Categories Pages
+              </li>
+            </Link>
+
           </ul>
         </div>
         <div className="sidebarMenu">
