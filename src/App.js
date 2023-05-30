@@ -22,6 +22,7 @@ import CityUpdate from "./pages/city/cityUpdate";
 import AddCity from "./pages/city/cityAdd";
 import AddProvince from "./pages/province/addProvince";
 import AddCountry from "./pages/country/countryAdd";
+import IndexUpdate from "./pages/index/indexUpdate";
 function App() {
 
   const localStorageValue = localStorage.getItem("persist:root");
@@ -96,6 +97,9 @@ function App() {
           </Route>
           <Route path="/addCountry">
             <AddCountry/>
+          </Route>
+          <Route path="/editIndex">
+            <IndexUpdate/>
           </Route>
       </div>
       </>

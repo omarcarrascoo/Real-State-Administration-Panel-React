@@ -2,41 +2,27 @@
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom/cjs/react-router-dom';
-import UpdateForm from '../../components/updateFormUser/updateForm';
-import './user.css';
+import UpdateForm from '../../components/updateFormIndex/updateForm';
+import './countryUpdate.css';
 import axios from 'axios';
 
-const UpdateUser = () => {
-    const history = useHistory();
+const IndexUpdate = () => {
+  const history = useHistory();
   const [data, setData] = useState(null);
-  const { id } = useParams();
-
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     try {
-      const localStorageValue = localStorage.getItem("persist:root");
-      const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
-      const user = parsedValue.user || "";
-      const currentUser = user ? JSON.parse(user).currentUser : {};
-      const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      
-      const response = await axios.get(`http://174.138.95.49/api/users/${id}`, {
-        headers: {
-          'Content-Type': 'application/json',
-          token: `Bearer ${TOKEN}`,
-        },
-      });
-  
-      const data = response.data;
+      const response = await fetch(`http://174.138.95.49/api/home/`);
+      const data = await response.json();
       setData(data);
     } catch (error) {
       console.log('Error fetching data:', error);
     }
   };
-
+  console.log(data);
   const updateData = async (updatedData) => {
     try {
         const localStorageValue = localStorage.getItem("persist:root");
@@ -44,14 +30,14 @@ const UpdateUser = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-        const response = await axios.put(`http://174.138.95.49/api/users/${id}`, updatedData, {
+        const response = await axios.put(`http://174.138.95.49/api/home/`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
         },
       });
       
-      history.push('/users');
+      history.push('/countries');
     } catch (error) {
       console.log('Error updating data:', error);
     }
@@ -60,7 +46,6 @@ const UpdateUser = () => {
 
   return (
     <div className='country__update'>
-        
       {data ? (
         <UpdateForm data={data} onUpdate={updateData} />
       ) : (
@@ -68,6 +53,7 @@ const UpdateUser = () => {
       )}
     </div>
   );
+
 };
 
-export default UpdateUser;
+export default IndexUpdate;
