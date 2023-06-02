@@ -22,7 +22,10 @@ import CityUpdate from "./pages/city/cityUpdate";
 import AddCity from "./pages/city/cityAdd";
 import AddProvince from "./pages/province/addProvince";
 import AddCountry from "./pages/country/countryAdd";
-import IndexUpdate from "./pages/index/indexUpdate";
+import HomesList from "./pages/homeList/homeList";
+import AddHome from "./pages/homePages/homeAdd";
+import UpdateHome from "./pages/homePages/homeUpdate";
+
 function App() {
 
   const localStorageValue = localStorage.getItem("persist:root");
@@ -30,10 +33,14 @@ function App() {
   const user = parsedValue.user || "";
   const currentUser = user ? JSON.parse(user).currentUser : {};
   const admin = currentUser && currentUser.accessToken ? currentUser.isAdmin : '';
+
+// useEffect(()=>{
+//   window.location.reload()
+// }, [admin])
   return (
     <Router>
         <Switch>
-          <Route path="/login">
+          <Route exact path="/">
             <Login />
           </Route>
      {admin &&(
@@ -41,7 +48,7 @@ function App() {
        <Topbar />
       <div className="container">
         <Sidebar />
-          <Route exact path="/">
+          <Route  path="/dashboard">
             <Home />
           </Route>
           <Route path="/users">
@@ -98,8 +105,14 @@ function App() {
           <Route path="/addCountry">
             <AddCountry/>
           </Route>
-          <Route path="/editIndex">
-            <IndexUpdate/>
+          <Route path="/homes">
+            <HomesList/>
+          </Route>
+          <Route path="/addHome">
+            <AddHome/>
+          </Route>
+          <Route path="/editHome/:id">
+            <UpdateHome/>
           </Route>
       </div>
       </>

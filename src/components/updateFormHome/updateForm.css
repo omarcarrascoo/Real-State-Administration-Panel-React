@@ -12,7 +12,7 @@ form input{
     border: 1px solid #999;
     border-radius: 5px;
     padding: 8px 15px ;
-    margin: 0 0;
+    margin: 5px 0 20px 0;
     width: 85%;
 }
 form textarea{

@@ -23,7 +23,7 @@ const UpdateUser = () => {
       const currentUser = user ? JSON.parse(user).currentUser : {};
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
       
-      const response = await axios.get(`http://174.138.95.49/api/users/${id}`, {
+      const response = await axios.get(`http://localhost:8000/api/users/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
@@ -44,7 +44,7 @@ const UpdateUser = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-        const response = await axios.put(`http://174.138.95.49/api/users/${id}`, updatedData, {
+        const response = await axios.put(`http://localhost:8000/api/users/${id}`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,

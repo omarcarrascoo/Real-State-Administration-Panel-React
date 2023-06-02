@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { userRequest } from "../../requestMethods";
+import axios from "axios";
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 export default function CountryList() {
+  const history = useHistory();
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const getUsers = async () => {
@@ -24,7 +27,24 @@ export default function CountryList() {
     getUsers()
   }, []);
   console.log(users);
-  const handleDelete = (id) => {
+  const handleDelete =  async(id) => {
+    try {
+        const localStorageValue = localStorage.getItem("persist:root");
+        const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
+        const user = parsedValue.user || "";
+        const currentUser = user ? JSON.parse(user).currentUser : {};
+        const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
+      const response = await axios.delete(`http://localhost:8000/api/countries/${id}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          token: `Bearer ${TOKEN}`,
+        },
+      });
+      
+      history.push('/countries');
+    } catch (error) {
+      console.log('Error updating data:', error);
+    }
     setUsers(users.filter((item) => item.id !== id));
   };
   

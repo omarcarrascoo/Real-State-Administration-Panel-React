@@ -15,7 +15,7 @@ const UpdateForm = ({ data, onUpdate }) => {
   if (data) {
     return (
       <form className='form' onSubmit={handleSubmit}>
-      <h1>Add City</h1>
+      <h1>Add Index Page</h1>
       <p>Status</p>
       <select name="status" id="status">
         <option value="true">Active</option>
@@ -29,13 +29,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.lenguage}
         onChange={handleChange}
       />
-      <p>City Name</p>
+      <p>Page Name</p>
       <input
-        placeholder='Nombre del pais: ej.México'
+        placeholder='Solo para administraci[on interna'
         type="text"
-        name="provinceName"
+        name="pageName"
         onChange={handleChange}
-        value={formData.provinceName}
+        value={formData.countryName}
       />
       <p>Metadescription</p>
       <textarea
@@ -59,24 +59,8 @@ const UpdateForm = ({ data, onUpdate }) => {
         placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
         type="text"
         name="titleTag"
+        onChange={handleChange}
         value={formData.titleTag}
-        onChange={handleChange}
-      />
-      <p>URL CITY</p>
-      <input
-        placeholder='ej. mexico'
-        type="text"
-        name="urlProvince"
-        onChange={handleChange}
-        value={formData.urlProvince}
-      />
-      <p>URL ORIGIN COUNTRY</p>
-      <input
-        placeholder='ej. mexico'
-        type="text"
-        name="urlCountry"
-        onChange={handleChange}
-        value={formData.country}
       />
       <p>h1</p>
       <input
@@ -101,13 +85,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.p}
       ></textarea>
-      <button type="submit">Update</button>
+      <button type="submit">Create</button>
     </form>
     );
-  } else {
+  }else{
     return (
-      <form className='form' onSubmit={handleSubmit}>
-      <h1>Add City</h1>
+          <form className='form' onSubmit={handleSubmit}>
+      <h1>Add Index Page</h1>
       <p>Status</p>
       <select name="status" id="status">
         <option value="true">Active</option>
@@ -120,11 +104,11 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="lenguage"
         onChange={handleChange}
       />
-      <p>City Name</p>
+      <p>Page Name</p>
       <input
-        placeholder='Nombre del pais: ej.México'
+        placeholder='Solo para administraci[on interna'
         type="text"
-        name="provinceName"
+        name="pageName"
         onChange={handleChange}
       />
       <p>Metadescription</p>
@@ -147,20 +131,6 @@ const UpdateForm = ({ data, onUpdate }) => {
         placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
         type="text"
         name="titleTag"
-        onChange={handleChange}
-      />
-      <p>URL CITY</p>
-      <input
-        placeholder='ej. mexico'
-        type="text"
-        name="urlProvince"
-        onChange={handleChange}
-      />
-      <p>URL ORIGIN COUNTRY</p>
-      <input
-        placeholder='ej. mexico'
-        type="text"
-        name="urlCountry"
         onChange={handleChange}
       />
       <p>h1</p>

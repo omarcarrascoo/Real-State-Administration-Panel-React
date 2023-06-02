@@ -1,4 +1,4 @@
-import "./cityList.css";
+import "./countryList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
@@ -8,13 +8,13 @@ import { useEffect } from "react";
 import { userRequest } from "../../requestMethods";
 import axios from "axios";
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
-export default function CityList() {
+export default function HomesList() {
   const history = useHistory();
   const [users, setUsers] = useState([]);
   useEffect(() => {
     const getUsers = async () => {
   try {
-    const res = await userRequest.get("cities");
+    const res = await userRequest.get("homes");
     const updatedUsers = res.data.map((user) => ({
       id: user._id, // Assuming the id is available as _id
       ...user,
@@ -27,37 +27,35 @@ export default function CityList() {
     getUsers()
   }, []);
   console.log(users);
-  const handleDelete = async (id) => {
+  const handleDelete =  async(id) => {
     try {
         const localStorageValue = localStorage.getItem("persist:root");
         const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.delete(`http://localhost:8000/api/cities/${id}`, {
+        const response = await axios.delete(`http://localhost:8000/api/homes/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
         },
       });
-      
+      setUsers(users.filter((item) => item.id !== id));
     } catch (error) {
       console.log('Error updating data:', error);
     }
-    setUsers(users.filter((item) => item.id !== id));
   };
   
   const columns = [
     { field: "id", headerName: "ID", width: 200 },
-    { field: "cityName", headerName: "City Name", width: 200 },
     {
-      field: "urlCity",
-      headerName: "URL",
+      field: "pageName",
+      headerName: "Page Name",
       width: 120,
     },
+    { field: "lenguage", headerName: "Lenguage", width: 150 },
     { field: "h1", headerName: "H1", width: 150 },
     { field: "h2", headerName: "H2", width: 150 },
-    { field: "urlCountry", headerName: "URL Country", width: 180 },
     {
       field: "action",
       headerName: "Action",
@@ -65,7 +63,7 @@ export default function CityList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/editCity/" + params.row.id}>
+            <Link to={"/editHome/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -81,7 +79,7 @@ export default function CityList() {
   return (
     <div className="userList">
       <div className="addNewBtn">
-        <Link to='/addCity'><button>Add New</button></Link>
+        <Link to="/addHome"><button>Add New</button></Link>
       </div>
       <DataGrid
         rows={users}
