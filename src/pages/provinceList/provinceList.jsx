@@ -1,17 +1,14 @@
 import "./provinceList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { userRequest } from "../../requestMethods";
 import axios from "axios";
-import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 
 export default function ProvinceList() {
   const [users, setUsers] = useState([]);
-  const history = useHistory();
   useEffect(() => {
     const getUsers = async () => {
   try {
@@ -35,7 +32,7 @@ export default function ProvinceList() {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.delete(`http://localhost:8000/api/provinces/${id}`, {
+      const response = await axios.delete(`http://174.138.95.49/api/provinces/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
