@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://LOCALHOST:8000/api/";
+const BASE_URL = "http://174.138.95.49/api/";
 
 // JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser.accessToken
 

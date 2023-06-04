@@ -37,7 +37,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImgSpecial" src={`http://LOCALHOST:8000/assets/images/${params.row.imgRoute}`} alt="" />
+            <img className="productListImgSpecial" src={`http://174.138.95.49/assets/images/${params.row.imgRoute}`} alt="" />
             {params.row.name}
           </div>
         );
