@@ -60,6 +60,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         type="text"
         name="titleTag"
         onChange={handleChange}
+        value= {formData.titleTag}
       />
       <p>Wikipedia Flag Link</p>
       <input
@@ -100,7 +101,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.p}
       ></textarea>
-      <button type="submit">Create</button>
+      <button type="submit">Update</button>
     </form>
     );
   }else{
@@ -182,7 +183,7 @@ const UpdateForm = ({ data, onUpdate }) => {
           name="p"
           onChange={handleChange}
         ></textarea>
-        <button type="submit">Create</button>
+        <button type="submit">Add</button>
       </form>
     );
   }

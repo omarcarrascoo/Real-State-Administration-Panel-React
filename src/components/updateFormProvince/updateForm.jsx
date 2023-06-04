@@ -74,7 +74,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       <input
         placeholder='ej. mexico'
         type="text"
-        name="urlCountry"
+        name="country"
         onChange={handleChange}
         value={formData.country}
       />
@@ -160,7 +160,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       <input
         placeholder='ej. mexico'
         type="text"
-        name="urlCountry"
+        name="country"
         onChange={handleChange}
       />
       <p>h1</p>

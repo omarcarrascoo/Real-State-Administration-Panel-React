@@ -70,14 +70,6 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.urlCategory}
       />
-      <p>Title Tag</p>
-      <input
-        placeholder='ej. Terrenos en venta'
-        type="text"
-        name="titleTag"
-        onChange={handleChange}
-        value={formData.titleTag}
-      />
       <p>h1</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'

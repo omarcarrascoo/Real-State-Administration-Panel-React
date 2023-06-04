@@ -33,7 +33,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       <input
         placeholder='Nombre del Desarrollo'
         type="text"
-        name="provinceName"
+        name="cityName"
         onChange={handleChange}
         value={formData.cityName}
       />
