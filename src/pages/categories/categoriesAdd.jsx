@@ -2,12 +2,12 @@
 import { useHistory } from 'react-router-dom/cjs/react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom/cjs/react-router-dom';
-import UpdateForm from '../../components/updateFormCountry/updateForm';
+import UpdateForm from '../../components/updateFormCategories/updateForm';
 import './countryUpdate.css';
 import axios from 'axios';
 
-const AddCountry = () => {
-    const history = useHistory();
+const AddCategory = () => {
+  const history = useHistory();
   const [data, setData] = useState(null);
   const { id } = useParams();
 
@@ -18,14 +18,14 @@ const AddCountry = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.post(`http://LOCALHOST:8000/api/countries/add`, updatedData, {
+        const response = await axios.post(`http://localhost:8000/api/categories/add`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
         },
       });
-      
-      history.push('/countries');
+      history.push('/categories');
+
     } catch (error) {
       console.log('Error updating data:', error);
     }
@@ -37,4 +37,4 @@ const AddCountry = () => {
   );
 };
 
-export default AddCountry;
+export default AddCategory;

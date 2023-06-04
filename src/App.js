@@ -25,15 +25,30 @@ import AddCountry from "./pages/country/countryAdd";
 import HomesList from "./pages/homeList/homeList";
 import AddHome from "./pages/homePages/homeAdd";
 import UpdateHome from "./pages/homePages/homeUpdate";
+import { useHistory } from 'react-router-dom';
+import AddCategory from "./pages/categories/categoriesAdd";
+import UpdateCategories from "./pages/categories/categoriesUpdate";
+import AddCategoryPage from "./pages/categoryPage/categoriesaPageAdd";
+import UpdateCategoriesPages from "./pages/categoryPage/categoriesPageUpdate";
+
 
 function App() {
-
+  
   const localStorageValue = localStorage.getItem("persist:root");
   const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
   const user = parsedValue.user || "";
   const currentUser = user ? JSON.parse(user).currentUser : {};
   const admin = currentUser && currentUser.accessToken ? currentUser.isAdmin : '';
 
+  const history = useHistory()
+  if (!admin) {
+    
+    return (
+      <Router>
+        <Login />
+      </Router>
+    )
+  }
 // useEffect(()=>{
 //   window.location.reload()
 // }, [admin])
@@ -84,9 +99,16 @@ function App() {
           <Route path="/categories-pages">
             <CategoriesPageList/>
           </Route>
+          <Route path="/addCategoryPage">
+            <AddCategoryPage/>
+          </Route>
+          <Route path="/editCategoryPage/:id">
+            <UpdateCategoriesPages/>
+          </Route>
           <Route path="/editCountry/:id">
             <UpdateCountry/>
           </Route>
+          
           <Route path="/updateUser/:id">
             <UpdateUser/>
           </Route>
@@ -113,6 +135,12 @@ function App() {
           </Route>
           <Route path="/editHome/:id">
             <UpdateHome/>
+          </Route>
+          <Route path='/addCategory'>
+            <AddCategory/>
+          </Route>
+          <Route path='/editCategory/:id'>
+            <UpdateCategories/>
           </Route>
       </div>
       </>

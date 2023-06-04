@@ -30,13 +30,13 @@ export default function CategoriesPageList() {
   
   const columns = [
     { field: "id", headerName: "ID", width: 200 },
-    { field: "urlProvince", headerName: "Parent Category Url", width: 200 },
     { field: "categoryTitle", headerName: "Category Name", width: 200 },
     {
       field: "urlCategory",
       headerName: "URL",
       width: 120,
     },
+    { field: "urlProvince", headerName: "Parent Category Url", width: 200 },
     { field: "h1", headerName: "H1", width: 150 },
     { field: "h2", headerName: "H2", width: 150 },
     {
@@ -46,7 +46,7 @@ export default function CategoriesPageList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
+            <Link to={"/editCategoryPage/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -61,6 +61,9 @@ export default function CategoriesPageList() {
 
   return (
     <div className="userList">
+      <div className="addNewBtn">
+        <Link to="/addCategoryPage"><button>Add New</button></Link>
+      </div>
       <DataGrid
         rows={users}
         disableSelectionOnClick

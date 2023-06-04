@@ -15,7 +15,7 @@ const UpdateForm = ({ data, onUpdate }) => {
   if (data) {
     return (
       <form className='form' onSubmit={handleSubmit}>
-      <h1>Add Development</h1>
+      <h1>Update Category</h1>
       <p>Status</p>
       <select name="status" id="status">
         <option value="true">Active</option>
@@ -29,13 +29,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.lenguage}
         onChange={handleChange}
       />
-      <p>Development Name</p>
+      <p>Category Name</p>
       <input
-        placeholder='Nombre del Desarrollo'
+        placeholder='Nombre del pais: ej.México'
         type="text"
-        name="provinceName"
+        name="categoryTitle"
         onChange={handleChange}
-        value={formData.cityName}
+        value={formData.categoryTitle}
       />
       <p>Metadescription</p>
       <textarea
@@ -62,29 +62,21 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.titleTag}
         onChange={handleChange}
       />
-      <p>URL DESARROLLO</p>
+      <p>URL CATEGORY</p>
       <input
-        placeholder='ej. monarca'
+        placeholder='ej. terrenos-en-venta'
         type="text"
-        name="urlCity"
+        name="urlCategory"
         onChange={handleChange}
-        value={formData.urlCity}
+        value={formData.urlCategory}
       />
-      <p>URL ORIGIN COUNTRY</p>
+      <p>Title Tag</p>
       <input
-        placeholder='ej. mexico'
+        placeholder='ej. Terrenos en venta'
         type="text"
-        name="urlCountry"
+        name="titleTag"
         onChange={handleChange}
-        value={formData.urlCountry}
-      />
-      <p>URL ORIGIN CITY</p>
-      <input
-        placeholder='ej. queretaro'
-        type="text"
-        name="urlProvince"
-        onChange={handleChange}
-        value={formData.urlProvince}
+        value={formData.titleTag}
       />
       <p>h1</p>
       <input
@@ -104,7 +96,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Descripcion Larga</p>
       <textarea
-        placeholder='Descripcion del desarrollo'
+        placeholder='Descripcion de la categoria'
         name="p"
         onChange={handleChange}
         value={formData.p}
@@ -115,7 +107,7 @@ const UpdateForm = ({ data, onUpdate }) => {
   } else {
     return (
       <form className='form' onSubmit={handleSubmit}>
-      <h1>Add Development</h1>
+      <h1>Add Category</h1>
       <p>Status</p>
       <select name="status" id="status">
         <option value="true">Active</option>
@@ -128,11 +120,11 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="lenguage"
         onChange={handleChange}
       />
-      <p>Development Name</p>
+      <p>Category Name</p>
       <input
-        placeholder='Nombre del Desarrollo'
+        placeholder='Nombre de la categoria: ej. Casas en Renta'
         type="text"
-        name="cityName"
+        name="categoryTitle"
         onChange={handleChange}
       />
       <p>Metadescription</p>
@@ -157,25 +149,11 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="titleTag"
         onChange={handleChange}
       />
-      <p>URL DESARROLLO</p>
+      <p>URL CATEGORY</p>
       <input
-        placeholder='ej. monarca'
+        placeholder='ej. casas-en-renta'
         type="text"
-        name="urlCity"
-        onChange={handleChange}
-      />
-      <p>URL ORIGIN COUNTRY</p>
-      <input
-        placeholder='ej. mexico'
-        type="text"
-        name="urlCountry"
-        onChange={handleChange}
-      />
-      <p>URL ORIGIN CITY</p>
-      <input
-        placeholder='ej. queretaro'
-        type="text"
-        name="urlProvince"
+        name="urlCategory"
         onChange={handleChange}
       />
       <p>h1</p>
@@ -194,7 +172,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Descripcion Larga</p>
       <textarea
-        placeholder='Descripcion del desarrollo'
+        placeholder='Descripcion de la categoria'
         name="p"
         onChange={handleChange}
       ></textarea>

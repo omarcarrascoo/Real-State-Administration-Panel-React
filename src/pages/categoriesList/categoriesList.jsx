@@ -5,6 +5,7 @@ import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import axios from "axios";
 import { userRequest } from "../../requestMethods";
 export default function CategoriesList() {
   const [users, setUsers] = useState([]);
@@ -24,8 +25,25 @@ export default function CategoriesList() {
     getUsers()
   }, []);
   console.log(users);
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
+    try {
+      const localStorageValue = localStorage.getItem("persist:root");
+      const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
+      const user = parsedValue.user || "";
+      const currentUser = user ? JSON.parse(user).currentUser : {};
+      const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
+    const response = await axios.delete(`http://LOCALHOST:8000/api/categories/${id}`, {
+      headers: {
+        'Content-Type': 'application/json',
+        token: `Bearer ${TOKEN}`,
+      },
+    });
+    
     setUsers(users.filter((item) => item.id !== id));
+  } catch (error) {
+    console.log('Error updating data:', error);
+  }
+    
   };
   
   const columns = [
@@ -38,6 +56,7 @@ export default function CategoriesList() {
     },
     { field: "h1", headerName: "H1", width: 150 },
     { field: "h2", headerName: "H2", width: 150 },
+    { field: "p", headerName: "Descripcion larga", width: 150 },
     {
       field: "action",
       headerName: "Action",
@@ -45,7 +64,7 @@ export default function CategoriesList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row.id}>
+            <Link to={"/editCategory/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -60,6 +79,9 @@ export default function CategoriesList() {
 
   return (
     <div className="userList">
+       <div className="addNewBtn">
+        <Link to="/addCategory"><button>Add New</button></Link>
+      </div>
       <DataGrid
         rows={users}
         disableSelectionOnClick

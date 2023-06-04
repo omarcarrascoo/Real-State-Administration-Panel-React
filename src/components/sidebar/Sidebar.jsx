@@ -80,13 +80,13 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Categories</h3>
           <ul className="sidebarList">
-            <Link to="/dashboard" className="link">
+            <Link to="/categories" className="link">
               <li className="sidebarListItem">
                 <Category className="sidebarIcon" />
                 Categories
               </li>
             </Link>
-            <Link to="/dashboard" className="link">
+            <Link to="/categories-pages" className="link">
               <li className="sidebarListItem">
                 <NoteAdd className="sidebarIcon" />
                 Categories Pages

@@ -31,7 +31,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>City Name</p>
       <input
-        placeholder='Nombre del pais: ej.México'
+        placeholder='Nombre del pais: ej. San Luis Potosi'
         type="text"
         name="provinceName"
         onChange={handleChange}
@@ -64,7 +64,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>URL CITY</p>
       <input
-        placeholder='ej. mexico'
+        placeholder='ej. queretaro'
         type="text"
         name="urlProvince"
         onChange={handleChange}
@@ -96,7 +96,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Descripcion Larga</p>
       <textarea
-        placeholder='Descripcion del pais'
+        placeholder='Descripcion de la provincia'
         name="p"
         onChange={handleChange}
         value={formData.p}
@@ -122,7 +122,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>City Name</p>
       <input
-        placeholder='Nombre del pais: ej.México'
+        placeholder='Nombre del pais: ej. San Luis Potosi'
         type="text"
         name="provinceName"
         onChange={handleChange}
@@ -151,7 +151,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>URL CITY</p>
       <input
-        placeholder='ej. mexico'
+        placeholder='ej. san-luis-potosi'
         type="text"
         name="urlProvince"
         onChange={handleChange}
@@ -179,11 +179,11 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Descripcion Larga</p>
       <textarea
-        placeholder='Descripcion del pais'
+        placeholder='Descripcion del estado'
         name="p"
         onChange={handleChange}
       ></textarea>
-      <button type="submit">Create</button>
+      <button type="submit">Add</button>
     </form>
     );
   }

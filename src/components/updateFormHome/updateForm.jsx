@@ -80,12 +80,12 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Descripcion Larga</p>
       <textarea
-        placeholder='Descripcion del pais'
+        placeholder='Descripcion del home'
         name="p"
         onChange={handleChange}
         value={formData.p}
       ></textarea>
-      <button type="submit">Create</button>
+      <button type="submit">Update</button>
     </form>
     );
   }else{
@@ -153,7 +153,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="p"
         onChange={handleChange}
       ></textarea>
-      <button type="submit">Create</button>
+      <button type="submit">Add</button>
     </form>
     );
   }

@@ -12,14 +12,15 @@ function Login() {
     const handdleClick = (e) =>{
         e.preventDefault()
         login(dispathch, {username, password})
-        const localStorageValue = localStorage.getItem("persist:root");
-        const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
-        const user = parsedValue.user || "";
-        const currentUser = user ? JSON.parse(user).currentUser : {};
-        const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-        if(TOKEN){
-            history.push('/dashboard');
-        }
+        // const localStorageValue = localStorage.getItem("persist:root");
+        // const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
+        // const user = parsedValue.user || "";
+        // const currentUser = user ? JSON.parse(user).currentUser : {};
+        // const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
+        // if(TOKEN){
+        //     history.push('/dashboard');
+        // }
+        history.push('/dashboard');
         window.location.reload()
     }
   return (

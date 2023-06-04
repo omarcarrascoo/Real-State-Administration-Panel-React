@@ -18,7 +18,7 @@ const AddProvince = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.post(`http://174.138.95.49/api/provinces/add`, updatedData, {
+      const response = await axios.post(`http://LOCALHOST:8000/api/provinces/add`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,

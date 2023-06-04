@@ -32,7 +32,7 @@ export default function ProvinceList() {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.delete(`http://174.138.95.49/api/provinces/${id}`, {
+      const response = await axios.delete(`http://LOCALHOST:8000/api/provinces/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
