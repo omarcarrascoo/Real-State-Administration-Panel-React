@@ -43,9 +43,9 @@ export default function ProductList() {
         );
       },
     },
-    { field: "h1ES", headerName: "Title", width: 200 },
+    { field: "h1", headerName: "Title", width: 200 },
     {
-      field: "urlEs",
+      field: "urlProperty",
       headerName: "URL",
       width: 160,
       color: "#fff",
@@ -61,9 +61,9 @@ export default function ProductList() {
       width: 120,
     },
     {
-      field: "cityUrl",
-      headerName: "City Url",
-      width: 120,
+      field: "urlCity",
+      headerName: "Development Url",
+      width: 200,
     },
     {
       field: "status",

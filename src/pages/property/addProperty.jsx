@@ -25,7 +25,7 @@ const AddProperty = () => {
         },
       });
       
-      history.push('/provinces');
+      history.push('/products');
     } catch (error) {
       console.log('Error updating data:', error);
     }

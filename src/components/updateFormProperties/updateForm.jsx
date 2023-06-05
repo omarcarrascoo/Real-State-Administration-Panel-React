@@ -15,7 +15,7 @@ const UpdateForm = ({ data, onUpdate }) => {
   if (data) {
     return (
       <form className='form' onSubmit={handleSubmit}>
-      <h1>Add Property</h1>
+      <h1>Update Property</h1>
       <p>Status</p>
       <select name="status" id="status">
         <option value="true">Active</option>
@@ -403,13 +403,6 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.compartirRedes}
       />
-      <p>imgRoute</p>
-      <input
-        type="text"
-        name="imgRoute"
-        onChange={handleChange}
-        value={formData.imgRoute}
-      />
        <p>Fuente Original</p>
       <input
         type="text"
@@ -787,12 +780,6 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="compartirRedes"
         onChange={handleChange}
       />
-      <p>imgRoute</p>
-      <input
-        type="text"
-        name="imgRoute"
-        onChange={handleChange}
-      />
        <p>Fuente Original</p>
       <input
         type="text"
@@ -823,8 +810,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="agenteOriginal"
         onChange={handleChange}
       />
-      <input type="file" name="imgRoute" id="imgRoute" onChange={handleChange}/>
-      <button type="submit">Update</button>
+      <button type="submit">Add</button>
     </form>
     );
   }
