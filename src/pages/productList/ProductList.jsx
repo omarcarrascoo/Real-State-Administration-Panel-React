@@ -73,11 +73,12 @@ export default function ProductList() {
     {
       field: "action",
       headerName: "Action",
-      width: 150,
+      width: 230,
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/editProvince/" + params.row.id}>
+            <button className="productListEdit">Add Images</button>
+            <Link to={"/editProperty/" + params.row.id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -92,6 +93,11 @@ export default function ProductList() {
 
   return (
     <div className="productList">
+      <div className="addNewBtn">
+     <Link to="addProperty">
+        <button>Add New</button>
+      </Link>
+      </div>
       <DataGrid
         rows={users}
         disableSelectionOnClick

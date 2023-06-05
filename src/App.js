@@ -7,7 +7,6 @@ import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
-import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
 import Login from "./pages/login/Login";
 import CountryList from "./pages/countryList/countryList";
@@ -30,6 +29,8 @@ import AddCategory from "./pages/categories/categoriesAdd";
 import UpdateCategories from "./pages/categories/categoriesUpdate";
 import AddCategoryPage from "./pages/categoryPage/categoriesaPageAdd";
 import UpdateCategoriesPages from "./pages/categoryPage/categoriesPageUpdate";
+import AddProperty from "./pages/property/addProperty";
+import UpdateProperty from "./pages/property/propertyUpdate";
 
 
 function App() {
@@ -77,9 +78,6 @@ function App() {
           </Route>
           <Route path="/products">
             <ProductList />
-          </Route>
-          <Route path="/product/:productId">
-            <Product />
           </Route>
           <Route path="/newproduct">
             <NewProduct />
@@ -142,6 +140,13 @@ function App() {
           <Route path='/editCategory/:id'>
             <UpdateCategories/>
           </Route>
+          <Route path='/addProperty'>
+            <AddProperty/>
+          </Route>
+          <Route path='/editProperty/:id'>
+            <UpdateProperty/>
+          </Route>
+          
       </div>
       </>
      )}
