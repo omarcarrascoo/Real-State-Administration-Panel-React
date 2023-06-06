@@ -37,7 +37,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImgSpecial" src={`http://174.138.95.49/assets/images/${params.row.imgRoute}`} alt="" />
+            <img className="productListImgSpecial" src={`http://localhost:8000/${params.row.imgRoute[0]}`} alt="" />
             {params.row.name}
           </div>
         );
@@ -77,7 +77,9 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <button className="productListEdit">Add Images</button>
+            <Link to={"/imageUploader/" + params.row.id}>
+              <button className="productListEdit">Add Images</button>
+            </Link>
             <Link to={"/editProperty/" + params.row.id}>
               <button className="productListEdit">Edit</button>
             </Link>

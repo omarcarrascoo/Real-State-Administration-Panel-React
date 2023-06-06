@@ -94,6 +94,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.ciudad}
       />
+      <p>Category</p>
+      <input
+        placeholder='ej. terrenos industriales'
+        type="text"
+        name="category"
+        onChange={handleChange}
+        value={formData.category}
+      />
       <p>URL DESARROLLO</p>
       <input
         placeholder='ej. monarca'
@@ -117,6 +125,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="urlProvince"
         onChange={handleChange}
         value={formData.urlProvince}
+      />
+      <p>URL CATEGORY</p>
+      <input
+        placeholder='ej. terrenos industriales'
+        type="text"
+        name="urlCategory"
+        onChange={handleChange}
+        value={formData.urlCategory}
       />
       <p>h1</p>
       <input
@@ -514,6 +530,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="ciudad"
         onChange={handleChange}
       />
+      <p>Category</p>
+      <input
+        placeholder='ej. Terrenos Industriales'
+        type="text"
+        name="category"
+        onChange={handleChange}
+      />
       <p>URL DESARROLLO</p>
       <input
         placeholder='ej. monarca'
@@ -533,6 +556,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         placeholder='ej. queretaro'
         type="text"
         name="urlProvince"
+        onChange={handleChange}
+      />
+      <p>URL CATEGORY</p>
+      <input
+        placeholder='ej. terrenos-industriales'
+        type="text"
+        name="urlCategory"
         onChange={handleChange}
       />
       <p>h1</p>

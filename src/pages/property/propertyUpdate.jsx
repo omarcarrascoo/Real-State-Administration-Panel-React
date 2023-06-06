@@ -17,7 +17,7 @@ const UpdateProperty = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://174.138.95.49/api/industrialProperties/findbyid/${id}`);
+      const response = await fetch(`http://localhost:8000/api/industrialProperties/findbyid/${id}`);
       const data = await response.json();
       setData(data);
     } catch (error) {
@@ -32,7 +32,7 @@ const UpdateProperty = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.put(`http://174.138.95.49/api/industrialProperties/${id}`, updatedData, {
+      const response = await axios.put(`http://localhost:8000/api/industrialProperties/${id}`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
