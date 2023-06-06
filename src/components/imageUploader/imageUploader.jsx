@@ -21,7 +21,7 @@
 //       const formData = new FormData();
 //       formData.append('image', file);
   
-//       const response = await axios.put(`http://localhost:8000/api/propertyImage/uploadcompress/${id}`, formData, {
+//       const response = await axios.put(`http://174.138.95.49/api/propertyImage/uploadcompress/${id}`, formData, {
 //         headers: {
 //           'Content-Type': 'multipart/form-data',
 //           token: `Bearer ${TOKEN}`,
@@ -80,7 +80,7 @@
 //       const currentUser = user ? JSON.parse(user).currentUser : {};
 //       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
 
-//       const response = await axios.post(`http://localhost:8000/api/propertyImage/uploadcompress/${id}`, formData, {
+//       const response = await axios.post(`http://174.138.95.49/api/propertyImage/uploadcompress/${id}`, formData, {
 //         headers: {
 //           'Content-Type': 'multipart/form-data',
 //           token: `Bearer ${TOKEN}`,
@@ -138,7 +138,7 @@ const ImageUploader = () => {
       const currentUser = user ? JSON.parse(user).currentUser : {};
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
 
-      const response = await axios.post(`http://localhost:8000/api/propertyImage/uploadcompress/${id}`, formData, {
+      const response = await axios.post(`http://174.138.95.49/api/propertyImage/uploadcompress/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           token: `Bearer ${TOKEN}`,
