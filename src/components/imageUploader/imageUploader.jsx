@@ -1,113 +1,106 @@
 // import React, { useState } from 'react';
-// import axios from 'axios';
-// import { useParams } from 'react-router-dom/cjs/react-router-dom';
-// import { useHistory } from 'react-router-dom/cjs/react-router-dom';
-// const ImageUploader = () => {
-//     const history = useHistory();
-//   const [selectedImages, setSelectedImages] = useState([]);
-//   const { id } = useParams();
+// import './updateForm.css'
+// const UpdateForm = ({ data, onUpdate }) => {
+//   const [formData, setFormData] = useState(data);
 
-//   const handleImageUpload = async (event) => {
-//     const file = event.target.files[0];
-//     setSelectedImages([file]);
-  
-//     try {
-//       const localStorageValue = localStorage.getItem("persist:root");
-//       const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
-//       const user = parsedValue.user || "";
-//       const currentUser = user ? JSON.parse(user).currentUser : {};
-//       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-  
-//       const formData = new FormData();
-//       formData.append('image', file);
-  
-//       const response = await axios.put(`http://174.138.95.49/api/propertyImage/uploadcompress/${id}`, formData, {
-//         headers: {
-//           'Content-Type': 'multipart/form-data',
-//           token: `Bearer ${TOKEN}`,
-//         },
-//       });
-  
-//       history.push('/products');
-//     } catch (error) {
-//       console.log('Error updating data:', error);
-//     }
+//   const handleChange = (e) => {
+//     setFormData({ ...formData, [e.target.name]: e.target.value });
 //   };
-  
 
-//   return (
-//     <form onSubmit={handleImageUpload}>
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     onUpdate(formData);
+//   };
+
+//   if (data) {
+//     return (
+//       <form className='form' onSubmit={handleSubmit}>
+//       <h1>Add Imgs</h1>
 //       <input
 //         type="file"
-//         accept="image/*"
-//         // multiple
-//         onChange={handleImageUpload}
+//         name="images"
+//         onChange={handleChange}
 //       />
-//       <button type="submit">Add</button>
+//       <p>Country Name</p>
+//       <input
+//         placeholder='Texto Alternativo'
+//         type="text"
+//         name="altText"
+//         onChange={handleChange}
+//       />
+//       <button type="submit">Update</button>
 //     </form>
-//   );
+//     );
+//   }else{
+//     return (
+//       <form className='form' onSubmit={handleSubmit}>
+//       <h1>Add Imgs</h1>
+//       <input
+//         type="file"
+//         name="images"
+//         onChange={handleChange}
+//       />
+//       <p>Country Name</p>
+//       <input
+//         placeholder='Texto Alternativo'
+//         type="text"
+//         name="altText"
+//         onChange={handleChange}
+//       />
+//       <button type="submit">Update</button>
+//     </form>
+//     );
+//   }
 // };
 
-// export default ImageUploader;
-
-
-
-
+// export default UpdateForm;
 
 
 
 
 
 // import React, { useState } from 'react';
-// import axios from 'axios';
-// import { useParams } from 'react-router-dom';
-// import { useHistory } from 'react-router-dom';
 
-// const ImageUploader = () => {
-//   const history = useHistory();
-//   const [selectedImages, setSelectedImages] = useState([]);
-//   const { id } = useParams();
+// const UpdateForm = ({ onUpdate }) => {
+//   const [selectedImage, setSelectedImage] = useState(null);
+//   const [altText, setAltText] = useState('');
 
-//   const handleImageUpload = async (event) => {
+//   const handleImageChange = (event) => {
+//     setSelectedImage(event.target.files[0]);
+//   };
+
+//   const handleAltTextChange = (event) => {
+//     setAltText(event.target.value);
+//   };
+
+//   const handleSubmit = (event) => {
 //     event.preventDefault();
-//     const formData = new FormData(event.target); // Use the FormData directly from the event target
-//     setSelectedImages(Array.from(formData.values()));
 
-//     try {
-//       const localStorageValue = localStorage.getItem("persist:root");
-//       const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
-//       const user = parsedValue.user || "";
-//       const currentUser = user ? JSON.parse(user).currentUser : {};
-//       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
+//     const formData = new FormData();
+//     formData.append('image', selectedImage);
+//     formData.append('altText', altText);
 
-//       const response = await axios.post(`http://174.138.95.49/api/propertyImage/uploadcompress/${id}`, formData, {
-//         headers: {
-//           'Content-Type': 'multipart/form-data',
-//           token: `Bearer ${TOKEN}`,
-//         },
-//       });
-
-//       history.push('/products');
-//     } catch (error) {
-//       console.log('Error updating data:', error);
-//     }
+//     onUpdate(formData);
 //   };
 
 //   return (
-//     <form onSubmit={handleImageUpload}>
+//     <form className="form" onSubmit={handleSubmit}>
+//       <h1>Add Images</h1>
+//       <input type="file" name="images" onChange={handleImageChange} />
+//       <p>Alt Text</p>
 //       <input
-//         type="file"
-//         accept="image/*"
-//         name="image" // Give the input a name to include it in FormData
+//         placeholder="Alternate Text"
+//         type="text"
+//         name="altText"
+//         value={altText}
+//         onChange={handleAltTextChange}
 //       />
-//       <button type="submit">Add</button>
+//       <button type="submit">Update</button>
 //     </form>
 //   );
 // };
 
-// export default ImageUploader;
-
-
+// export default UpdateForm;
 
 
 
@@ -117,50 +110,44 @@
 
 
 import React, { useState } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
 
-const ImageUploader = () => {
-  const history = useHistory();
+const UpdateForm = ({ onUpdate }) => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const { id } = useParams();
+  const [altText, setAltText] = useState('');
 
-  const handleImageUpload = async (event) => {
+  const handleImageChange = (event) => {
+    setSelectedImage(event.target.files[0]);
+  };
+
+  const handleAltTextChange = (event) => {
+    setAltText(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
     event.preventDefault();
+
     const formData = new FormData();
-    formData.append('images', event.target.files[0]); // Use the field name 'images'
+    formData.append('images', selectedImage); // Modified field name to 'images'
+    formData.append('altText', altText);
 
-    try {
-      const localStorageValue = localStorage.getItem("persist:root");
-      const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
-      const user = parsedValue.user || "";
-      const currentUser = user ? JSON.parse(user).currentUser : {};
-      const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-
-      const response = await axios.post(`http://174.138.95.49/api/propertyImage/uploadcompress/${id}`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          token: `Bearer ${TOKEN}`,
-        },
-      });
-
-      history.push('/products');
-    } catch (error) {
-      console.log('Error uploading image:', error);
-    }
+    onUpdate(formData);
   };
 
   return (
-    <form onSubmit={handleImageUpload}>
+    <form className="form" onSubmit={handleSubmit}>
+      <h1>Add Images</h1>
+      <input type="file" name="images" onChange={handleImageChange} />
+      <p>Alt Text</p>
       <input
-        type="file"
-        accept="image/*"
-        onChange={handleImageUpload}
+        placeholder="Alternate Text"
+        type="text"
+        name="altText"
+        value={altText}
+        onChange={handleAltTextChange}
       />
-      <button type="submit">Add</button>
+      <button type="submit">Update</button>
     </form>
   );
 };
 
-export default ImageUploader;
+export default UpdateForm;

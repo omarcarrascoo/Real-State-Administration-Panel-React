@@ -29,6 +29,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.lenguage}
         onChange={handleChange}
       />
+      <p>Id Propiedad</p>
+      <input
+        
+        type="text"
+        name="posicionListado"
+        onChange={handleChange}
+        value={formData.posicionListado}
+      />
       <p>Property Name</p>
       <input
         placeholder='Solo para descripcion interna'
@@ -164,14 +172,6 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="videos"
         onChange={handleChange}
         value={formData.videos}
-      />
-      <p>Posicion Listado</p>
-      <input
-        
-        type="text"
-        name="posicionListado"
-        onChange={handleChange}
-        value={formData.posicionListado}
       />
       <p>Año de construcción</p>
       <input
@@ -473,6 +473,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="lenguage"
         onChange={handleChange}
       />
+      <p>ID PROPIEDAD</p>
+      <input
+        
+        type="text"
+        name="posicionListado"
+        onChange={handleChange}
+      />
       <p>Property Name</p>
       <input
         placeholder='Solo para descripcion interna'
@@ -592,13 +599,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="videos"
         onChange={handleChange}
       />
-      <p>Posicion Listado</p>
-      <input
-        
-        type="text"
-        name="posicionListado"
-        onChange={handleChange}
-      />
+      
       <p>Año de construcción</p>
       <input
         

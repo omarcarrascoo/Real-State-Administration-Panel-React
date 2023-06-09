@@ -32,6 +32,7 @@ import UpdateCategoriesPages from "./pages/categoryPage/categoriesPageUpdate";
 import AddProperty from "./pages/property/addProperty";
 import UpdateProperty from "./pages/property/propertyUpdate";
 import ImageUploader from "./components/imageUploader/imageUploader";
+import AddImage from "./pages/imageUpload/ImageAdd";
 
 
 function App() {
@@ -148,9 +149,8 @@ function App() {
             <UpdateProperty/>
           </Route>
           <Route path='/imageUploader/:id'>
-            <ImageUploader/>
-          </Route>
-          
+            <AddImage/>
+          </Route>  
       </div>
       </>
      )}
