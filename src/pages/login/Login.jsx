@@ -26,7 +26,7 @@ function Login() {
   return (
         <div className="panelLogin">
             <div className="panelLoginContainer">
-                <img src="http://174.138.95.49/public/images/logoIndustryluxLong.jpg" alt="Logo Industrilux" />
+                <img src="https://industrylux.com/public/images/logoIndustryluxLong.jpg" alt="Logo Industrilux" />
                 <form>
                     <label htmlFor="username">Username</label>
                     <input type="text" name='username' placeholder='example@gmail.com' onChange={(e)=> setUsername(e.target.value)}/>
