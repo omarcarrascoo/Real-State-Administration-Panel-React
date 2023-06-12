@@ -19,7 +19,7 @@
 
 //   const fetchData = async () => {
 //     try {
-//       const response = await fetch(`https://174.138.95.49/api/industrialProperties/findbyid/${id}`);
+//       const response = await fetch(`http://174.138.95.49/api/industrialProperties/findbyid/${id}`);
 //       const data = await response.json();
 //       setData(data);
 //     } catch (error) {
@@ -36,7 +36,7 @@
 //       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
 
 //       const response = await axios.post(
-//         `https://174.138.95.49/api/propertyImage/uploadcompress/${id}`,
+//         `http://174.138.95.49/api/propertyImage/uploadcompress/${id}`,
 //         formData,
 //         {
 //           headers: {
@@ -83,7 +83,7 @@ const AddImage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`https://174.138.95.49/api/industrialProperties/findbyid/${id}`);
+      const response = await fetch(`http://174.138.95.49/api/industrialProperties/findbyid/${id}`);
       const data = await response.json();
       setData(data);
       setLoading(false); // Set loading to false when data is fetched
@@ -103,7 +103,7 @@ const AddImage = () => {
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
 
       const response = await axios.post(
-        `https://174.138.95.49/api/propertyImage/uploadcompress/${id}`,
+        `http://174.138.95.49/api/propertyImage/uploadcompress/${id}`,
         formData,
         {
           headers: {

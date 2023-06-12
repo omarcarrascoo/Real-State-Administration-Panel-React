@@ -32,7 +32,7 @@ export default function ProductList() {
       const user = parsedValue.user || "";
       const currentUser = user ? JSON.parse(user).currentUser : {};
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-    const response = await axios.delete(`https://174.138.95.49/api/industrialProperties/${id}`, {
+    const response = await axios.delete(`http://174.138.95.49/api/industrialProperties/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         token: `Bearer ${TOKEN}`,
@@ -54,7 +54,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImgSpecial" src={`https://174.138.95.49/${params.row.imgRoute[0]}`} alt="" />
+            <img className="productListImgSpecial" src={`http://174.138.95.49/${params.row.imgRoute[0]}`} alt="" />
             {params.row.name}
           </div>
         );

@@ -34,7 +34,7 @@ export default function HomesList() {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-        const response = await axios.delete(`https://174.138.95.49/api/homes/${id}`, {
+        const response = await axios.delete(`http://174.138.95.49/api/homes/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
