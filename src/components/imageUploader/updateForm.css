@@ -1,11 +1,11 @@
-form{
+/* form{
     width: 100%;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100%;
+    
     margin: 20px 0;
     
 }
@@ -45,4 +45,4 @@ form button{
     color: #fff;
     width: 85%;
     margin-bottom: 20px;
-}
+} */

@@ -64,7 +64,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Wikipedia Flag Link</p>
       <input
-        placeholder = "Wikipedia Link ej. https://w7.pngwing.com/pngs/56/96/png-transparent-flag-of-mexico-flag-of-mexico-united-states-mexican-war-of-independence-mexican-flag-s-free-flag-text-logo.png"
+        placeholder = "Wikipedia Link ej. httpss://w7.pngwing.com/pngs/56/96/png-transparent-flag-of-mexico-flag-of-mexico-united-states-mexican-war-of-independence-mexican-flag-s-free-flag-text-logo.png"
         type="text"
         name="imgRoute"
         onChange={handleChange}
@@ -151,7 +151,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         />
         <p>Wikipedia Flag Link</p>
         <input
-          placeholder = "Wikipedia Link ej. https://w7.pngwing.com/pngs/56/96/png-transparent-flag-of-mexico-flag-of-mexico-united-states-mexican-war-of-independence-mexican-flag-s-free-flag-text-logo.png"
+          placeholder = "Wikipedia Link ej. httpss://w7.pngwing.com/pngs/56/96/png-transparent-flag-of-mexico-flag-of-mexico-united-states-mexican-war-of-independence-mexican-flag-s-free-flag-text-logo.png"
           type="text"
           name="imgRoute"
           onChange={handleChange}

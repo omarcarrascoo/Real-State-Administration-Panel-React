@@ -25,22 +25,24 @@ export default function ProductList() {
     getUsers()
   }, []);
   const handleDelete = async (id) => {
+    console.log(id);
     try {
       const localStorageValue = localStorage.getItem("persist:root");
       const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
       const user = parsedValue.user || "";
       const currentUser = user ? JSON.parse(user).currentUser : {};
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-    const response = await axios.delete(`http://174.138.95.49/api/industrialProperties/${id}`, {
+    const response = await axios.delete(`https://174.138.95.49/api/industrialProperties/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         token: `Bearer ${TOKEN}`,
       },
     });
+    setUsers(users.filter((item) => item.id !== id));
   } catch (error) {
     console.log('Error updating data:', error);
   }
-    setUsers(users.filter((item) => item.id !== id));
+    
   };
   console.log(users);
   const columns = [
@@ -52,7 +54,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImgSpecial" src={`http://174.138.95.49/${params.row.imgRoute[0]}`} alt="" />
+            <img className="productListImgSpecial" src={`https://174.138.95.49/${params.row.imgRoute[0]}`} alt="" />
             {params.row.name}
           </div>
         );
