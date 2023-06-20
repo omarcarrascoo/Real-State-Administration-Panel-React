@@ -1,6 +1,7 @@
 {
   "name": "industrilux",
   "version": "0.1.0",
+  "homepage": "http://143.110.234.115/panel",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",

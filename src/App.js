@@ -108,7 +108,6 @@ function App() {
           <Route path="/editCountry/:id">
             <UpdateCountry/>
           </Route>
-          
           <Route path="/updateUser/:id">
             <UpdateUser/>
           </Route>

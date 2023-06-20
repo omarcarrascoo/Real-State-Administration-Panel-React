@@ -38,7 +38,7 @@ function ImageVisualizer({ images }) {
           {images.imgRoute.map((image, index) => (
             <div className="imgBox">
                 <div className="imgImgBox">
-                    <img className='imageProperties' key={index} src={`https://industrylux.com/${image}`} alt={`Image ${index}`} />
+                    <img className='imageProperties' key={index} src={`http://143.110.234.115/${image}`} alt={`Image ${index}`} />
                 </div>
                 <div className="altImgBox">
                     <form action="">

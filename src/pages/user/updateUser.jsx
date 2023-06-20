@@ -23,7 +23,7 @@ const UpdateUser = () => {
       const currentUser = user ? JSON.parse(user).currentUser : {};
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
       
-      const response = await axios.get(`https://industrylux.com/api/users/${id}`, {
+      const response = await axios.get(`http://143.110.234.115/api/users/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
@@ -44,7 +44,7 @@ const UpdateUser = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-        const response = await axios.put(`https://industrylux.com/api/users/${id}`, updatedData, {
+        const response = await axios.put(`http://143.110.234.115/api/users/${id}`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
