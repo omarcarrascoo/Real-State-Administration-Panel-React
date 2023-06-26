@@ -32,7 +32,7 @@ export default function ProvinceList() {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.delete(`http://143.110.234.115/api/provinces/${id}`, {
+      const response = await axios.delete(`http://localhost:1337/api/provinces/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
@@ -62,7 +62,7 @@ export default function ProvinceList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/editProvince/" + params.row.id}>
+            <Link to={"/panel/editProvince/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -79,7 +79,7 @@ export default function ProvinceList() {
     <div className="userList">
 
      <div className="addNewBtn">
-     <Link to="addProvince">
+     <Link to="/panel/addProvince">
         <button>Add New</button>
       </Link>
       </div>

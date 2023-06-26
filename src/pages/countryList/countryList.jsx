@@ -33,7 +33,7 @@ export default function CountryList() {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.delete(`http://143.110.234.115/api/countries/${id}`, {
+      const response = await axios.delete(`http://localhost:1337/api/countries/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
@@ -75,7 +75,7 @@ export default function CountryList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/editCountry/" + params.row.id}>
+            <Link to={"/panel/editCountry/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -91,7 +91,7 @@ export default function CountryList() {
   return (
     <div className="userList">
       <div className="addNewBtn">
-        <Link to="/addCountry"><button>Add New</button></Link>
+        <Link to="/panel/addCountry"><button>Add New</button></Link>
       </div>
       <DataGrid
         rows={users}

@@ -18,13 +18,13 @@ const AddCategoryPage = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-        const response = await axios.post(`http://143.110.234.115/api/categories/addCategoryPage`, updatedData, {
+        const response = await axios.post(`http://localhost:1337/api/categories/addCategoryPage`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
         },
       });
-      history.push('/categories-pages');
+      history.push('/panel/categories-pages');
 
     } catch (error) {
       console.log('Error updating data:', error);

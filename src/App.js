@@ -66,88 +66,88 @@ function App() {
        <Topbar />
       <div className="container">
         <Sidebar />
-          <Route  path="/dashboard">
+          <Route  path="/panel/dashboard">
             <Home />
           </Route>
-          <Route path="/users">
+          <Route path="/panel/users">
             <UserList />
           </Route>
-          <Route path="/user/:userId">
+          <Route path="/panel/user/:userId">
             <User />
           </Route>
-          <Route path="/newUser">
+          <Route path="/panel/newUser">
             <NewUser />
           </Route>
-          <Route path="/products">
+          <Route path="/panel/products">
             <ProductList />
           </Route>
-          <Route path="/newproduct">
+          <Route path="/panel/newproduct">
             <NewProduct />
           </Route>
-          <Route path="/countries">
+          <Route path="/panel/countries">
             <CountryList />
           </Route>
-          <Route path="/provinces">
+          <Route path="/panel/provinces">
             <ProvinceList/>
           </Route>
-          <Route path="/cities">
+          <Route path="/panel/cities">
             <CityList/>
           </Route>
-          <Route path="/categories">
+          <Route path="/panel/categories">
             <CategoriesList/>
           </Route>
-          <Route path="/categories-pages">
+          <Route path="/panel/categories-pages">
             <CategoriesPageList/>
           </Route>
-          <Route path="/addCategoryPage">
+          <Route path="/panel/addCategoryPage">
             <AddCategoryPage/>
           </Route>
-          <Route path="/editCategoryPage/:id">
+          <Route path="/panel/editCategoryPage/:id">
             <UpdateCategoriesPages/>
           </Route>
-          <Route path="/editCountry/:id">
+          <Route path="/panel/editCountry/:id">
             <UpdateCountry/>
           </Route>
-          <Route path="/updateUser/:id">
+          <Route path="/panel/updateUser/:id">
             <UpdateUser/>
           </Route>
-          <Route path="/editProvince/:id">
+          <Route path="/panel/editProvince/:id">
             <UpdateProvince/>
           </Route>
-          <Route path="/editCity/:id">
+          <Route path="/panel/editCity/:id">
             <CityUpdate/>
           </Route>
-          <Route path="/addCity">
+          <Route path="/panel/addCity">
             <AddCity/>
           </Route>
-          <Route path="/addProvince">
+          <Route path="/panel/addProvince">
             <AddProvince/>
           </Route>
-          <Route path="/addCountry">
+          <Route path="/panel/addCountry">
             <AddCountry/>
           </Route>
-          <Route path="/homes">
+          <Route path="/panel/homes">
             <HomesList/>
           </Route>
-          <Route path="/addHome">
+          <Route path="/panel/addHome">
             <AddHome/>
           </Route>
-          <Route path="/editHome/:id">
+          <Route path="/panel/editHome/:id">
             <UpdateHome/>
           </Route>
-          <Route path='/addCategory'>
+          <Route path='/panel/addCategory'>
             <AddCategory/>
           </Route>
-          <Route path='/editCategory/:id'>
+          <Route path='/panel/editCategory/:id'>
             <UpdateCategories/>
           </Route>
-          <Route path='/addProperty'>
+          <Route path='/panel/addProperty'>
             <AddProperty/>
           </Route>
-          <Route path='/editProperty/:id'>
+          <Route path='/panel/editProperty/:id'>
             <UpdateProperty/>
           </Route>
-          <Route path='/imageUploader/:id'>
+          <Route path='/panel/imageUploader/:id'>
             <AddImage/>
           </Route>  
       </div>

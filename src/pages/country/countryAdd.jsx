@@ -18,14 +18,14 @@ const AddCountry = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.post(`http://143.110.234.115/api/countries/add`, updatedData, {
+      const response = await axios.post(`http://localhost:1337/api/countries/add`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
         },
       });
       
-      history.push('/countries');
+      history.push('/panel/countries');
     } catch (error) {
       console.log('Error updating data:', error);
     }

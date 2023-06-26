@@ -18,14 +18,14 @@ const AddCity = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.post(`http://143.110.234.115/api/cities/add`, updatedData, {
+      const response = await axios.post(`http://localhost:1337/api/cities/add`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
         },
       });
       
-      history.push('/cities');
+      history.push('/panel/cities');
     } catch (error) {
       console.log('Error updating data:', error);
     }

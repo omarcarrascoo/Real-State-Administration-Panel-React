@@ -28,13 +28,13 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
-            <Link to="/dashboard" className="link">
+            <Link to="/panel/dashboard" className="link">
             <li className="sidebarListItem">
               <LineStyle className="sidebarIcon" />
               Home
             </li>
             </Link>
-            <Link to="/homes" className="link">
+            <Link to="/panel/homes" className="link">
             <li className="sidebarListItem">
               <LineStyle className="sidebarIcon" />
               Index Pages
@@ -45,31 +45,31 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Actions</h3>
           <ul className="sidebarList">
-            <Link to="/users" className="link">
+            <Link to="/panel/users" className="link">
               <li className="sidebarListItem">
                 <PermIdentity className="sidebarIcon" />
                 Users
               </li>
             </Link>
-            <Link to="/products" className="link">
+            <Link to="/panel/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
                 Properties
               </li>
             </Link>
-            <Link to="/countries" className="link">
+            <Link to="/panel/countries" className="link">
               <li className="sidebarListItem">
                 <Flag className="sidebarIcon" />
                 Country
               </li>
             </Link>
-            <Link to="/provinces" className="link">
+            <Link to="/panel/provinces" className="link">
               <li className="sidebarListItem">
                 <LocationOn className="sidebarIcon" />
                 City
               </li>
             </Link>
-            <Link to="/cities" className="link">
+            <Link to="/panel/cities" className="link">
               <li className="sidebarListItem">
                 <ZoomIn className="sidebarIcon" />
                 Development
@@ -80,13 +80,13 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Categories</h3>
           <ul className="sidebarList">
-            <Link to="/categories" className="link">
+            <Link to="/panel/categories" className="link">
               <li className="sidebarListItem">
                 <Category className="sidebarIcon" />
                 Categories
               </li>
             </Link>
-            <Link to="/categories-pages" className="link">
+            <Link to="/panel/categories-pages" className="link">
               <li className="sidebarListItem">
                 <NoteAdd className="sidebarIcon" />
                 Categories Pages

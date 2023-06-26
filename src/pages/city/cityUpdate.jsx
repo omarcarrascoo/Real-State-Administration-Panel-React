@@ -17,7 +17,7 @@ const CityUpdate = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://143.110.234.115/api/cities/find/${id}`);
+      const response = await fetch(`http://localhost:1337/api/cities/find/${id}`);
       const data = await response.json();
       setData(data);
     } catch (error) {
@@ -32,14 +32,14 @@ const CityUpdate = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.put(`http://143.110.234.115/api/cities/${id}`, updatedData, {
+      const response = await axios.put(`http://localhost:1337/api/cities/${id}`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
         },
       });
       
-      history.push('/cities');
+      history.push('/panel/cities');
     } catch (error) {
       console.log('Error updating data:', error);
     }

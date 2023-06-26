@@ -34,7 +34,7 @@ export default function HomesList() {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-        const response = await axios.delete(`http://143.110.234.115/api/homes/${id}`, {
+        const response = await axios.delete(`http://localhost:1337/api/homes/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
@@ -63,7 +63,7 @@ export default function HomesList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/editHome/" + params.row.id}>
+            <Link to={"/panel/editHome/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -79,7 +79,7 @@ export default function HomesList() {
   return (
     <div className="userList">
       <div className="addNewBtn">
-        <Link to="/addHome"><button>Add New</button></Link>
+        <Link to="/panel/addHome"><button>Add New</button></Link>
       </div>
       <DataGrid
         rows={users}

@@ -19,7 +19,7 @@
 
 //   const fetchData = async () => {
 //     try {
-//       const response = await fetch(`http://143.110.234.115/api/industrialProperties/findbyid/${id}`);
+//       const response = await fetch(`http://localhost:1337/api/industrialProperties/findbyid/${id}`);
 //       const data = await response.json();
 //       setData(data);
 //     } catch (error) {
@@ -36,7 +36,7 @@
 //       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
 
 //       const response = await axios.post(
-//         `http://143.110.234.115/api/propertyImage/uploadcompress/${id}`,
+//         `http://localhost:1337/api/propertyImage/uploadcompress/${id}`,
 //         formData,
 //         {
 //           headers: {
@@ -83,7 +83,7 @@ const AddImage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://143.110.234.115/api/industrialProperties/findbyid/${id}`);
+      const response = await fetch(`http://localhost:1337/api/industrialProperties/findbyid/${id}`);
       const data = await response.json();
       setData(data);
       setLoading(false); // Set loading to false when data is fetched
@@ -103,7 +103,7 @@ const AddImage = () => {
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
 
       const response = await axios.post(
-        `http://143.110.234.115/api/propertyImage/uploadcompress/${id}`,
+        `http://localhost:1337/api/propertyImage/uploadcompress/${id}`,
         formData,
         {
           headers: {
@@ -113,7 +113,7 @@ const AddImage = () => {
         }
       );
 
-      history.push('/products');
+      history.push('/panel/products');
     } catch (error) {
       console.log('Error updating data:', error);
     } finally {

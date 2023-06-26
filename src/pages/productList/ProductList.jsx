@@ -32,7 +32,7 @@ export default function ProductList() {
       const user = parsedValue.user || "";
       const currentUser = user ? JSON.parse(user).currentUser : {};
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-    const response = await axios.delete(`http://143.110.234.115/api/industrialProperties/${id}`, {
+    const response = await axios.delete(`http://localhost:1337/api/industrialProperties/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         token: `Bearer ${TOKEN}`,
@@ -54,7 +54,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImgSpecial" src={`http://143.110.234.115/${params.row.imgRoute[0]}`} alt="" />
+            <img className="productListImgSpecial" src={`http://localhost:1337/${params.row.imgRoute[0]}`} alt="" />
             {params.row.name}
           </div>
         );
@@ -94,10 +94,10 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/imageUploader/" + params.row.id}>
+            <Link to={"/panel/imageUploader/" + params.row.id}>
               <button className="productListEdit">Add Images</button>
             </Link>
-            <Link to={"/editProperty/" + params.row.id}>
+            <Link to={"/panel/editProperty/" + params.row.id}>
               <button className="productListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -113,7 +113,7 @@ export default function ProductList() {
   return (
     <div className="productList">
       <div className="addNewBtn">
-     <Link to="addProperty">
+     <Link to="/panel/addProperty">
         <button>Add New</button>
       </Link>
       </div>

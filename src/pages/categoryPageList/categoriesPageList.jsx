@@ -26,13 +26,15 @@ export default function CategoriesPageList() {
   }, []);
   console.log(users);
   const handleDelete =  async(id) => {
+    console.log(id);
     try {
+      
       const localStorageValue = localStorage.getItem("persist:root");
       const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
       const user = parsedValue.user || "";
       const currentUser = user ? JSON.parse(user).currentUser : {};
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-    const response = await axios.delete(`http://143.110.234.115/api/categories/${id}`, {
+    const response = await axios.delete(`http://localhost:1337/api/categories/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         token: `Bearer ${TOKEN}`,
@@ -63,7 +65,7 @@ export default function CategoriesPageList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/editCategoryPage/" + params.row.id}>
+            <Link to={"/panel/editCategoryPage/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -79,7 +81,7 @@ export default function CategoriesPageList() {
   return (
     <div className="userList">
       <div className="addNewBtn">
-        <Link to="/addCategoryPage"><button>Add New</button></Link>
+        <Link to="/panel/addCategoryPage"><button>Add New</button></Link>
       </div>
       <DataGrid
         rows={users}

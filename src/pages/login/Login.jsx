@@ -18,15 +18,15 @@ function Login() {
         // const currentUser = user ? JSON.parse(user).currentUser : {};
         // const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
         // if(TOKEN){
-        //     history.push('/dashboard');
+        //     '/dashboard');
         // }
-        history.push('/dashboard');
+        history.push('/panel/dashboard');
         window.location.reload()
     }
   return (
         <div className="panelLogin">
             <div className="panelLoginContainer">
-                <img src="http://143.110.234.115/public/images/logoIndustryluxLong.jpg" alt="Logo Industrilux" />
+                <img src="http://localhost:1337/public/images/logoIndustryluxLong.jpg" alt="Logo Industrilux" />
                 <form>
                     <label htmlFor="username">Username</label>
                     <input type="text" name='username' placeholder='example@gmail.com' onChange={(e)=> setUsername(e.target.value)}/>

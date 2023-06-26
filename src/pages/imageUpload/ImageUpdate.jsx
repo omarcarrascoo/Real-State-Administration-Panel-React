@@ -17,7 +17,7 @@ const UpdateImage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://143.110.234.115/api/industrialProperties/findbyid/${id}`);
+      const response = await fetch(`http://localhost:1337/api/industrialProperties/findbyid/${id}`);
       const data = await response.json();
       
       setData(data);
@@ -33,14 +33,14 @@ const UpdateImage = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.put(`http://143.110.234.115/api/propertyImage/uploadcompress/${id}`, updatedData, {
+      const response = await axios.put(`http://localhost:1337/api/propertyImage/uploadcompress/${id}`, updatedData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           token: `Bearer ${TOKEN}`,
         },
       });
       
-      history.push('/countries');
+      history.push('/panel/countries');
     } catch (error) {
       console.log('Error updating data:', error);
     }

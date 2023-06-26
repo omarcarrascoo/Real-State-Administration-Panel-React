@@ -34,7 +34,7 @@ export default function CityList() {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.delete(`http://143.110.234.115/api/cities/${id}`, {
+      const response = await axios.delete(`http://localhost:1337/api/cities/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
@@ -65,7 +65,7 @@ export default function CityList() {
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/editCity/" + params.row.id}>
+            <Link to={"/panel/editCity/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
             <DeleteOutline
@@ -81,7 +81,7 @@ export default function CityList() {
   return (
     <div className="userList">
       <div className="addNewBtn">
-        <Link to='/addCity'><button>Add New</button></Link>
+        <Link to='/panel/addCity'><button>Add New</button></Link>
       </div>
       <DataGrid
         rows={users}
