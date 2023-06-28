@@ -9,20 +9,36 @@ function Login() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const dispathch = useDispatch()
-    const handdleClick = (e) =>{
-        e.preventDefault()
-        login(dispathch, {username, password})
-        // const localStorageValue = localStorage.getItem("persist:root");
-        // const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
-        // const user = parsedValue.user || "";
-        // const currentUser = user ? JSON.parse(user).currentUser : {};
-        // const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-        // if(TOKEN){
-        //     '/dashboard');
-        // }
-        history.push('/panel/dashboard');
-        window.location.reload()
-    }
+    // const handdleClick = (e) =>{
+    //     e.preventDefault()
+    //     login(dispathch, {username, password})
+    //     const localStorageValue = localStorage.getItem("persist:root");
+    //     const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
+    //     const user = parsedValue.user || "";
+    //     const currentUser = user ? JSON.parse(user).currentUser : {};
+    //     const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
+    //     if(TOKEN){
+    //         // '/dashboard';
+    //         history.push('/panel/dashboard');
+    //         window.location.reload()
+    //     }
+    //     // history.push('/panel/dashboard');
+        
+    // }
+    const handdleClick = async (e) => {
+        e.preventDefault();
+        await login(dispathch, { username, password });
+        const localStorageValue = localStorage.getItem("persist:root");
+        const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
+        const user = parsedValue.user || "";
+        const currentUser = user ? JSON.parse(user).currentUser : {};
+        const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
+        if (TOKEN) {
+          history.push('/panel/dashboard');
+          window.location.reload();
+        }
+      };
+      
   return (
         <div className="panelLogin">
             <div className="panelLoginContainer">

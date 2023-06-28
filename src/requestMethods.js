@@ -3,10 +3,12 @@ import axios from "axios";
 const BASE_URL = "http://localhost:1337/api/";
 
 // JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser.accessToken
-
 const localStorageValue = localStorage.getItem("persist:root");
+console.log(localStorageValue);
 const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
+console.log(parsedValue);
 const user = parsedValue.user || "";
+console.log(user);
 const currentUser = user ? JSON.parse(user).currentUser : {};
 const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
 // Rest of your code
