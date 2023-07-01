@@ -35,7 +35,7 @@ function ImageVisualizer({ images }) {
     
         <div className='imgVisual'>
           <h1>Images</h1>
-          {images.imgRoute.map((image, index) => (
+          {images.imgRoute.toReversed().map((image, index) => (
             <div className="imgBox">
                 <div className="imgImgBox">
                     <img className='imageProperties' key={index} src={`http://localhost:1337/${image}`} alt={`Image ${index}`} />
