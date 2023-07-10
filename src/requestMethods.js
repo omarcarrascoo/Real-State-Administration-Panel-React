@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:1337/api/";
+const BASE_URL = "https://industrylux.com/api/";
 
 // JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser.accessToken
 const localStorageValue = localStorage.getItem("persist:root");

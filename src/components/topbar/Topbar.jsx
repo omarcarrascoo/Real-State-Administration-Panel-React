@@ -12,7 +12,7 @@ export default function Topbar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <img src="http://localhost:1337/public/images/logoIndustryluxLong.jpg" alt="Industrilux logo" />
+          <img src="https://industrylux.com/public/images/logoIndustryluxLong.jpg" alt="Industrilux logo" />
         </div>
         <div className="topRight">
           <p>{username}</p>

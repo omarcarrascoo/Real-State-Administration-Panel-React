@@ -18,10 +18,18 @@ import {
   ZoomIn,
   Category,
   NoteAdd,
+  Cancel,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
+import { useHistory } from 'react-router-dom/cjs/react-router-dom';
+
 export default function Sidebar() {
+  const history = useHistory();
+  const logOut = () =>{
+    localStorage.clear()
+    history.push('/')
+  }
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -106,9 +114,9 @@ export default function Sidebar() {
               <Timeline className="sidebarIcon" />
               Analytics
             </li>
-            <li className="sidebarListItem">
-              <Report className="sidebarIcon" />
-              Reports
+            <li onClick={()=>logOut()}className="sidebarListItem">
+              <Cancel className="sidebarIcon" />
+              Log Out
             </li>
           </ul>
         </div>

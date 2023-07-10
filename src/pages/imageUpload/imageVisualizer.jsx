@@ -24,28 +24,55 @@
 // export default ImageVisualizer;
 import React from 'react';
 import './ImageUpdate.css'
+import axios from 'axios';
 function ImageVisualizer({ images }) {
-  console.log(images);
 
+  const handleDelete = async (id, position) => {
+    // const imagesDes = images.imgRoute
+    try {
+      await console.log(id);
+      const imagesDes = images.imgRoute;
+      const reversedDes = imagesDes.reverse();
+      const desRemove = reversedDes.splice(position, 1);
+      console.log("Eliminado:")
+      console.log(desRemove)
+      console.log(reversedDes);
+      const originalRemove = desRemove.reverse()
+
+        const localStorageValue = localStorage.getItem("persist:root");
+        const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
+        const user = parsedValue.user || "";
+        const currentUser = user ? JSON.parse(user).currentUser : {};
+        const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
+        const response = await axios.put(`https://industrylux.com/api/propertyImage/deleteImg/${id}`, imagesDes, {
+        headers: {
+          'Content-Type': 'application/json',
+          token: `Bearer ${TOKEN}`,
+          },
+        });
+    } catch (error) {
+      console.log("hay un error al borrar la imagen: ")
+      console.log(error);
+    }
+  }
   if (images === null) {
     return <div>Cargando...</div>; // Otra opción es mostrar un spinner de carga
   }else{
-    console.log(images.imgRoute);
     return (
     
         <div className='imgVisual'>
           <h1>Images</h1>
           {images.imgRoute.toReversed().map((image, index) => (
-            <div className="imgBox">
+            <div key={index} className="imgBox">
                 <div className="imgImgBox">
-                    <img className='imageProperties' key={index} src={`http://localhost:1337/${image}`} alt={`Image ${index}`} />
+                    <img className='imageProperties' key={index} src={`https://industrylux.com/${image}`} alt={`Image ${index}`} />
                 </div>
                 <div className="altImgBox">
                     <form action="">
-                      <input type="text" placeholder='Alt Text' />
+                      {/* <input type="text" placeholder='Alt Text' /> */}
                       <div className="btnArea">
-                        <button className='btnPrimary'>Update</button>
-                        <button className='btnSecondary'>Deleate</button>
+                        {/* <button className='btnPrimary'>Update</button> */}
+                        <button className='btnSecondary' onClick={()=>handleDelete(images._id, index)}>Deleate</button>
                       </div>
                     </form>
                 </div>
