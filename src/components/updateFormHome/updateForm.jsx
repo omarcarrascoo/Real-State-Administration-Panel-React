@@ -37,14 +37,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.countryName}
       />
-      <p>Metadescription</p>
+      <p>metadescription</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
-        name="metaDescription"
+        name="metadescription"
         onChange={handleChange}
         cols="30" rows="10"
-        value={formData.metaDescription}
+        value={formData.metadescription}
       ></textarea>
       <p>keywords</p>
       <input
@@ -111,11 +111,11 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="pageName"
         onChange={handleChange}
       />
-      <p>Metadescription</p>
+      <p>metadescription</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
-        name="metaDescription"
+        name="metadescription"
         onChange={handleChange}
         cols="30" rows="10"
       ></textarea>

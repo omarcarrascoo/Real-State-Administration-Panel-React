@@ -34,7 +34,7 @@ export default function CityList() {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.delete(`https://industrylux.com/api/cities/${id}`, {
+      const response = await axios.delete(`http://localhost:1337/api/cities/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,

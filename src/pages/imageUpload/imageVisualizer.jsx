@@ -32,7 +32,7 @@ function ImageVisualizer({ images }) {
     try {
       await console.log(id);
       const imagesDes = images.imgRoute;
-      const reversedDes = imagesDes.reverse();
+      const reversedDes = imagesDes
       const desRemove = reversedDes.splice(position, 1);
       console.log("Eliminado:")
       console.log(desRemove)
@@ -44,7 +44,7 @@ function ImageVisualizer({ images }) {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-        const response = await axios.put(`https://industrylux.com/api/propertyImage/deleteImg/${id}`, imagesDes, {
+        const response = await axios.put(`http://localhost:1337/api/propertyImage/deleteImg/${id}`, imagesDes, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
@@ -62,10 +62,10 @@ function ImageVisualizer({ images }) {
     
         <div className='imgVisual'>
           <h1>Images</h1>
-          {images.imgRoute.toReversed().map((image, index) => (
+          {images.imgRoute.map((image, index) => (
             <div key={index} className="imgBox">
                 <div className="imgImgBox">
-                    <img className='imageProperties' key={index} src={`https://industrylux.com/${image}`} alt={`Image ${index}`} />
+                    <img className='imageProperties' key={index} src={`http://localhost:1337/${image}`} alt={`Image ${index}`} />
                 </div>
                 <div className="altImgBox">
                     <form action="">

@@ -17,7 +17,7 @@ const UpdateCategories = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`https://industrylux.com/api/categories/find/${id}`);
+      const response = await fetch(`http://localhost:1337/api/categories/find/${id}`);
       const data = await response.json();
       
       setData(data);
@@ -33,7 +33,7 @@ const UpdateCategories = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.put(`https://industrylux.com/api/categories/${id}`, updatedData, {
+      const response = await axios.put(`http://localhost:1337/api/categories/${id}`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,

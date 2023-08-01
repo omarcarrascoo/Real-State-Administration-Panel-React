@@ -29,6 +29,22 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.lenguage}
         onChange={handleChange}
       />
+      <p>Lenguage Alternative Page</p>
+      <input
+        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+        type="text"
+        name="lanLink"
+        value={formData.lanLink}
+        onChange={handleChange}
+      />
+      <p>English</p>
+      <input
+        placeholder='en/es'
+        type="text"
+        name="lenguage"
+        value={formData.lenguage}
+        onChange={handleChange}
+      />
       <p>Id Propiedad</p>
       <input
         
@@ -45,14 +61,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.descripcionInterna}
       />
-      <p>Metadescription</p>
+      <p>metadescription - Texto descriptivo para buscadores de 150 a 160 characters</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
-        name="metaDescription"
+        name="metadescription"
         onChange={handleChange}
         cols="30" rows="10"
-        value={formData.metaDescription}
+        value={formData.metadescription}
       ></textarea>
       <p>keywords</p>
       <input
@@ -473,6 +489,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="lenguage"
         onChange={handleChange}
       />
+      <p>Lenguage Alternative Page</p>
+      <input
+        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+        type="text"
+        name="lanLink"
+        onChange={handleChange}
+      />
       <p>ID PROPIEDAD</p>
       <input
         
@@ -487,11 +510,11 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="descripcionInterna"
         onChange={handleChange}
       />
-      <p>Metadescription</p>
+      <p>metadescription</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
-        name="metaDescription"
+        name="metadescription"
         onChange={handleChange}
         cols="30" rows="10"
       ></textarea>

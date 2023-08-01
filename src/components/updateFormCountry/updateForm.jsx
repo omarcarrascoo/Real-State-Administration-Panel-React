@@ -29,6 +29,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.lenguage}
         onChange={handleChange}
       />
+      <p>Lenguage Alternative Page</p>
+      <input
+        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+        type="text"
+        name="lanLink"
+        value={formData.lanLink}
+        onChange={handleChange}
+      />
       <p>Country Name</p>
       <input
         placeholder='Nombre del pais: ej.México'
@@ -37,14 +45,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.countryName}
       />
-      <p>Metadescription</p>
+      <p>metadescription</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
-        name="metaDescription"
+        name="metadescription"
         onChange={handleChange}
         cols="30" rows="10"
-        value={formData.metaDescription}
+        value={formData.metadescription}
       ></textarea>
       <p>keywords</p>
       <input
@@ -119,6 +127,12 @@ const UpdateForm = ({ data, onUpdate }) => {
           type="text"
           name="lenguage"
           onChange={handleChange}
+        /><p>Lenguage Alternative Page</p>
+        <input
+          placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+          type="text"
+          name="lanLink"
+          onChange={handleChange}
         />
         <p>Country Name</p>
         <input
@@ -127,11 +141,11 @@ const UpdateForm = ({ data, onUpdate }) => {
           name="countryName"
           onChange={handleChange}
         />
-        <p>Metadescription</p>
+        <p>metadescription</p>
         <textarea
           placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
           type="text"
-          name="metaDescription"
+          name="metadescription"
           onChange={handleChange}
           cols="30" rows="10"
         ></textarea>

@@ -29,6 +29,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.lenguage}
         onChange={handleChange}
       />
+      <p>Lenguage Alternative Page</p>
+      <input
+        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+        type="text"
+        name="lanLink"
+        value={formData.lanLink}
+        onChange={handleChange}
+      />
       <p>City Name</p>
       <input
         placeholder='Nombre del pais: ej. San Luis Potosi'
@@ -37,14 +45,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.provinceName}
       />
-      <p>Metadescription</p>
+      <p>metadescription</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
-        name="metaDescription"
+        name="metadescription"
         onChange={handleChange}
         cols="30" rows="10"
-        value={formData.metaDescription}
+        value={formData.metadescription}
       ></textarea>
       <p>keywords</p>
       <input
@@ -54,7 +62,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.keyWords}
       />
-      <p>Title-tag</p>
+      <p>Title-tag - Titulo que aparece en la pestaña del explorador de 50 to 60 characters</p>
       <input
         placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
         type="text"
@@ -78,7 +86,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.country}
       />
-      <p>h1</p>
+      <p>h1 - Encabezado de la página 70 - 80 characters máximo'</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'
         type="text"
@@ -86,7 +94,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.h1}
       />
-      <p>h2</p>
+      <p>h2 - Soporte para el Encabezado de la página 80 - 90 characters máximo </p>
       <input
         placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
         type="text"
@@ -120,6 +128,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="lenguage"
         onChange={handleChange}
       />
+      <p>Lenguage Alternative Page</p>
+      <input
+        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+        type="text"
+        name="lanLink"
+        onChange={handleChange}
+      />
       <p>City Name</p>
       <input
         placeholder='Nombre del pais: ej. San Luis Potosi'
@@ -127,11 +142,11 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="provinceName"
         onChange={handleChange}
       />
-      <p>Metadescription</p>
+      <p>metadescription</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
-        name="metaDescription"
+        name="metadescription"
         onChange={handleChange}
         cols="30" rows="10"
       ></textarea>
@@ -142,7 +157,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         placeholder='word1, word2, word3 ...'
         onChange={handleChange}
       />
-      <p>Title-tag</p>
+      <p>Title-tag - Titulo que aparece en la pestaña del explorador de 50 to 60 characters</p>
       <input
         placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
         type="text"
@@ -163,14 +178,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="country"
         onChange={handleChange}
       />
-      <p>h1</p>
+      <p>h1 - Encabezado de la página 70 - 80 characters máximo</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'
         type="text"
         name="h1"
         onChange={handleChange}
       />
-      <p>h2</p>
+      <p>h2 - Soporte para el Encabezado de la página 80 - 90 characters máximo</p>
       <input
         placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
         type="text"

@@ -32,7 +32,7 @@ export default function ProvinceList() {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.delete(`https://industrylux.com/api/provinces/${id}`, {
+      const response = await axios.delete(`http://localhost:1337/api/provinces/${id}`, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
@@ -46,6 +46,7 @@ export default function ProvinceList() {
   
   const columns = [
     { field: "id", headerName: "ID", width: 200 },
+    { field: "lenguage", headerName: "Language", width: 200 },
     { field: "provinceName", headerName: "Province Name", width: 200 },
     {
       field: "urlProvince",

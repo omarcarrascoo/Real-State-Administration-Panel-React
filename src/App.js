@@ -33,6 +33,7 @@ import AddProperty from "./pages/property/addProperty";
 import UpdateProperty from "./pages/property/propertyUpdate";
 import ImageUploader from "./components/imageUploader/imageUploader";
 import AddImage from "./pages/imageUpload/ImageAdd";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 function App() {
@@ -57,7 +58,9 @@ function App() {
 // }, [admin])
   return (
     <Router>
+      
         <Switch>
+        
           <Route exact path="/">
             <Login />
           </Route>

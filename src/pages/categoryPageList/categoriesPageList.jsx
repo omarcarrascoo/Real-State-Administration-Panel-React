@@ -34,7 +34,7 @@ export default function CategoriesPageList() {
       const user = parsedValue.user || "";
       const currentUser = user ? JSON.parse(user).currentUser : {};
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-    const response = await axios.delete(`https://industrylux.com/api/categories/pageCategory/${id}`, {
+    const response = await axios.delete(`http://localhost:1337/api/categories/pageCategory/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         token: `Bearer ${TOKEN}`,
