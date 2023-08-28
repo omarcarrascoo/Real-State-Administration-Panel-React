@@ -15,6 +15,9 @@
 .MuiDataGrid-columnHeaderTitleContainer{
     color: #000;
 }
+.MuiTablePagination-root{
+    background: #fff;
+}
 .productListImg {
     width: 32px;
     height: 32px;

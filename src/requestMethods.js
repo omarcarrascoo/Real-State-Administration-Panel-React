@@ -8,12 +8,6 @@ const parsedValue = localStorageValue ? JSON.parse(localStorageValue) : {};
 const user = parsedValue.user || "";
 const currentUser = user ? JSON.parse(user).currentUser : {};
 const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-// Rest of your code
-
-
-// Rest of your code
-
-
 
 // const TOKEN = localStorageValue ;
 

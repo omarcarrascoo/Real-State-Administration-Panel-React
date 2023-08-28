@@ -62,6 +62,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.titleTag}
         onChange={handleChange}
       />
+      <p>Image Cover</p> 
+      <input
+        placeholder = "Image Link ej. httpss://w7.pngwing.com/pngs/56/96/png-transparent-flag-of-mexico-flag-of-mexico-united-states-mexican-war-of-independence-mexican-flag-s-free-flag-text-logo.png"
+        type="text"
+        name="imgCover"
+        onChange={handleChange}
+        value={formData.imgCover}
+      />
       <p>URL DESARROLLO</p>
       <input
         placeholder='ej. monarca'
@@ -155,6 +163,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
         type="text"
         name="titleTag"
+        onChange={handleChange}
+      />
+      <p>Image Cover</p> 
+      <input
+        placeholder = "Image Link ej. httpss://w7.pngwing.com/pngs/56/96/png-transparent-flag-of-mexico-flag-of-mexico-united-states-mexican-war-of-independence-mexican-flag-s-free-flag-text-logo.png"
+        type="text"
+        name="imgCover"
         onChange={handleChange}
       />
       <p>URL DESARROLLO</p>

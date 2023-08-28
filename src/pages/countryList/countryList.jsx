@@ -71,7 +71,7 @@ export default function CountryList() {
     {
       field: "action",
       headerName: "Action",
-      width: 150,
+      width: 230,
       renderCell: (params) => {
         return (
           <>
@@ -97,7 +97,7 @@ export default function CountryList() {
         rows={users}
         disableSelectionOnClick
         columns={columns}
-        pageSize={8}
+        pageSize={14}
         checkboxSelection
       />
     </div>
