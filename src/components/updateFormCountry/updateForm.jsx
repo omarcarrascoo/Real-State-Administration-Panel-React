@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import './updateForm.css'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
+// import styles from './quillText.css'
+
 const UpdateForm = ({ data, onUpdate }) => {
   const [formData, setFormData] = useState(data);
-
+  const [value, setValue] = useState(data?.p || "" );
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value});
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onUpdate(formData);
+    const updatedFormData = { ...formData, p: value };
+    onUpdate(updatedFormData);
   };
-
   if (data) {
     return (
       <form className='form' onSubmit={handleSubmit}>
@@ -31,7 +36,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Lenguage Alternative Page</p>
       <input
-        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
         type="text"
         name="lanLink"
         value={formData.lanLink}
@@ -111,16 +116,25 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.h2}
       />
       <p>Descripcion Larga</p>
-      <textarea
+      {/* <textarea
         placeholder='Descripcion del pais'
         name="p"
         onChange={handleChange}
         value={formData.p}
-      ></textarea>
+      ></textarea> */}
+      <div className="editor">
+         <ReactQuill
+          className="quill"
+          theme="snow"
+          value={value}
+          onChange={setValue}
+        />
+         </div>
       <button type="submit">Update</button>
     </form>
     );
   }else{
+   
     return (
       <form className='form' onSubmit={handleSubmit}>
         <h1>Add Country</h1>
@@ -137,7 +151,7 @@ const UpdateForm = ({ data, onUpdate }) => {
           onChange={handleChange}
         /><p>Lenguage Alternative Page</p>
         <input
-          placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+          placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
           type="text"
           name="lanLink"
           onChange={handleChange}
@@ -206,12 +220,22 @@ const UpdateForm = ({ data, onUpdate }) => {
           name="h2"
           onChange={handleChange}
         />
-        <p>Descripcion Larga</p>
+        {/* <p>Descripcion Larga</p>
         <textarea
           placeholder='Descripcion del pais'
           name="p"
           onChange={handleChange}
-        ></textarea>
+        ></textarea> */}
+         <div className="editor">
+         <ReactQuill
+          className="quill"
+          theme="snow"
+          value={value}
+          onChange={setValue}
+        />
+         </div>
+
+
         <button type="submit">Add</button>
       </form>
     );

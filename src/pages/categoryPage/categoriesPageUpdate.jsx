@@ -17,7 +17,7 @@ const UpdateCategoriesPages = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:1337/api/categories/findCategoryPage/${id}`);
+      const response = await fetch(`https://industrylux.com/api/categories/findCategoryPage/${id}`);
       const data = await response.json();
       setData(data);
     } catch (error) {
@@ -32,7 +32,7 @@ const UpdateCategoriesPages = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.put(`http://localhost:1337/api/categories/editCategoryPage/${id}`, updatedData, {
+      const response = await axios.put(`https://industrylux.com/api/categories/editCategoryPage/${id}`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,

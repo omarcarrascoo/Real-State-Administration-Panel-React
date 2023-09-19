@@ -17,7 +17,7 @@ const AddImage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:1337/api/industrialProperties/findbyid/${id}`);
+      const response = await fetch(`https://industrylux.com/api/industrialProperties/findbyid/${id}`);
       const data = await response.json();
       setData(data);
       setLoading(false); // Set loading to false when data is fetched
@@ -37,7 +37,7 @@ const AddImage = () => {
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
 
       const response = await axios.post(
-        `http://localhost:1337/api/propertyImage/uploadcompress/${id}`,
+        `https://industrylux.com/api/propertyImage/uploadcompress/${id}`,
         formData,
         {
           headers: {
