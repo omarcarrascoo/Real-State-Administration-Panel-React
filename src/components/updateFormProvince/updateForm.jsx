@@ -1,20 +1,23 @@
 import React, { useState } from 'react';
 import './updateForm.css'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 const UpdateForm = ({ data, onUpdate }) => {
   const [formData, setFormData] = useState(data);
-
+  const [value, setValue] = useState(data?.p || "" );
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value});
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onUpdate(formData);
+    const updatedFormData = { ...formData, p: value };
+    onUpdate(updatedFormData);
   };
 
   if (data) {
     return (
-      <form className='form' onSubmit={handleSubmit}>
+      <form className='form formTexts' onSubmit={handleSubmit}>
       <h1>Add City</h1>
       <p>Status</p>
       <select name="status" id="status">
@@ -29,7 +32,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.lenguage}
         onChange={handleChange}
       />
-      <p>Lenguage Alternative Page</p>
+      <p>Lenguage Alternative Page (Link hacie la página de lenguaje Alternativo)</p>
       <input
         placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
         type="text"
@@ -45,7 +48,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.provinceName}
       />
-      <p>metadescription</p>
+      <p>Metadescription (Descriocion para el robot buscador de google, es el texto que aparce en la descripcion del link)</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
@@ -70,7 +73,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.titleTag}
         onChange={handleChange}
       />
-      <p>Image Cover</p> 
+      <p>Image Cover (Link hacia la imagen que se requiera como portada, se puede obtener haciendo click derecho sobte cualquier imagen de la página.)</p> 
       <input
         placeholder = "Image Link ej. httpss://w7.pngwing.com/pngs/56/96/png-transparent-flag-of-mexico-flag-of-mexico-united-states-mexican-war-of-independence-mexican-flag-s-free-flag-text-logo.png"
         type="text"
@@ -94,7 +97,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.country}
       />
-      <p>h1 - Encabezado de la página 70 - 80 characters máximo'</p>
+      <p>H1 - Titulo de la página 70 - 80 characters máximo</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'
         type="text"
@@ -102,7 +105,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.h1}
       />
-      <p>h2 - Soporte para el Encabezado de la página 80 - 90 characters máximo </p>
+      <p>H2 - Subtitulo la página 80 - 90 characters máximo </p>
       <input
         placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
         type="text"
@@ -111,18 +114,26 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.h2}
       />
       <p>Descripcion Larga</p>
-      <textarea
+      {/* <textarea
         placeholder='Descripcion de la provincia'
         name="p"
         onChange={handleChange}
         value={formData.p}
-      ></textarea>
+      ></textarea> */}
+      <div className="editor">
+         <ReactQuill
+          className="quill"
+          theme="snow"
+          value={value}
+          onChange={setValue}
+        />
+         </div>
       <button type="submit">Update</button>
     </form>
     );
   } else {
     return (
-      <form className='form' onSubmit={handleSubmit}>
+      <form className='form formTexts' onSubmit={handleSubmit}>
       <h1>Add City</h1>
       <p>Status</p>
       <select name="status" id="status">
@@ -136,7 +147,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="lenguage"
         onChange={handleChange}
       />
-      <p>Lenguage Alternative Page</p>
+      <p>Lenguage Alternative Page(Link hacia la pagina alterna)</p>
       <input
         placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
         type="text"
@@ -157,7 +168,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="provinceName"
         onChange={handleChange}
       />
-      <p>metadescription</p>
+      <p>Metadescription (Descriocion para el robot buscador de google, es el texto que aparce en la descripcion del link)</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
@@ -193,7 +204,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="country"
         onChange={handleChange}
       />
-      <p>h1 - Encabezado de la página 70 - 80 characters máximo</p>
+      <p>H1 - Encabezado de la página 70 - 80 characters máximo</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'
         type="text"
@@ -208,11 +219,19 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
       />
       <p>Descripcion Larga</p>
-      <textarea
+      {/* <textarea
         placeholder='Descripcion del estado'
         name="p"
         onChange={handleChange}
-      ></textarea>
+      ></textarea> */}
+      <div className="editor">
+         <ReactQuill
+          className="quill"
+          theme="snow"
+          value={value}
+          onChange={setValue}
+        />
+         </div>
       <button type="submit">Add</button>
     </form>
     );

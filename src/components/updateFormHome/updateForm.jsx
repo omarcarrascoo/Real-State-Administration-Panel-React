@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import './updateForm.css'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 const UpdateForm = ({ data, onUpdate }) => {
   const [formData, setFormData] = useState(data);
-
+  const [value, setValue] = useState(data?.p || "" );
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value});
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onUpdate(formData);
+    const updatedFormData = { ...formData, p: value };
+    onUpdate(updatedFormData);
   };
 
   if (data) {
@@ -29,6 +32,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.lenguage}
         onChange={handleChange}
       />
+      <p>Lenguage Alternative Page(Link hacia la pagina alterna)</p>
+      <input
+        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
+        type="text"
+        name="lanLink"
+        value={formData.lanLink}
+        onChange={handleChange}
+      />
       <p>Page Name</p>
       <input
         placeholder='Solo para administraci[on interna'
@@ -37,7 +48,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.countryName}
       />
-      <p>metadescription</p>
+      <p>Metadescription (Descriocion para el robot buscador de google, es el texto que aparce en la descripcion del link)</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
@@ -54,7 +65,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.keyWords}
       />
-      <p>Title-tag</p>
+      <p>Title-tag - Titulo que aparece en la pestaña del explorador de 50 to 60 characters</p>
       <input
         placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
         type="text"
@@ -62,7 +73,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.titleTag}
       />
-      <p>h1</p>
+      <p>H1 - Titulo de la página 70 - 80 characters máximo</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'
         type="text"
@@ -70,7 +81,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.h1}
       />
-      <p>h2</p>
+      <p>H2 - Subtitulo de la página 80 - 90 characters máximo</p>
       <input
         placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
         type="text"
@@ -79,12 +90,20 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.h2}
       />
       <p>Descripcion Larga</p>
-      <textarea
+      {/* <textarea
         placeholder='Descripcion del home'
         name="p"
         onChange={handleChange}
         value={formData.p}
-      ></textarea>
+      ></textarea> */}
+      <div className="editor">
+         <ReactQuill
+          className="quill"
+          theme="snow"
+          value={value}
+          onChange={setValue}
+        />
+         </div>
       <button type="submit">Update</button>
     </form>
     );
@@ -104,6 +123,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="lenguage"
         onChange={handleChange}
       />
+       <p>Lenguage Alternative Page(Link hacia la pagina alterna)</p>
+      <input
+        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
+        type="text"
+        name="lanLink"
+        onChange={handleChange}
+      />
       <p>Page Name</p>
       <input
         placeholder='Solo para administraci[on interna'
@@ -126,21 +152,21 @@ const UpdateForm = ({ data, onUpdate }) => {
         placeholder='word1, word2, word3 ...'
         onChange={handleChange}
       />
-      <p>Title-tag</p>
+      <p>Title-tag - Titulo que aparece en la pestaña del explorador de 50 to 60 characters</p>
       <input
         placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
         type="text"
         name="titleTag"
         onChange={handleChange}
       />
-      <p>h1</p>
+      <p>H1 - Titulo de la página 70 - 80 characters máximo</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'
         type="text"
         name="h1"
         onChange={handleChange}
       />
-      <p>h2</p>
+      <p>H2 - Subtitulo de la página 80 - 90 characters máximo</p>
       <input
         placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
         type="text"
@@ -148,11 +174,19 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
       />
       <p>Descripcion Larga</p>
-      <textarea
+      {/* <textarea
         placeholder='Descripcion del pais'
         name="p"
         onChange={handleChange}
-      ></textarea>
+      ></textarea> */}
+      <div className="editor">
+         <ReactQuill
+          className="quill"
+          theme="snow"
+          value={value}
+          onChange={setValue}
+        />
+         </div>
       <button type="submit">Add</button>
     </form>
     );

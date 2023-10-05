@@ -3,8 +3,6 @@ import './updateForm.css'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
-// import styles from './quillText.css'
-
 const UpdateForm = ({ data, onUpdate }) => {
   const [formData, setFormData] = useState(data);
   const [value, setValue] = useState(data?.p || "" );
@@ -19,7 +17,7 @@ const UpdateForm = ({ data, onUpdate }) => {
   };
   if (data) {
     return (
-      <form className='form' onSubmit={handleSubmit}>
+      <form className='form formTexts' onSubmit={handleSubmit}>
       <h1>Add Country</h1>
       <p>Status</p>
       <select name="status" id="status">
@@ -34,7 +32,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.lenguage}
         onChange={handleChange}
       />
-      <p>Lenguage Alternative Page</p>
+      <p>Lenguage Alternative Page (Link hacie la página de lenguaje Alternativo)</p>
       <input
         placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
         type="text"
@@ -50,7 +48,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.countryName}
       />
-      <p>metadescription</p>
+      <p>Metadescription (Descriocion para el robot buscador de google, es el texto que aparce en la descripcion del link)</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
@@ -67,7 +65,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.keyWords}
       />
-      <p>Title-tag</p>
+      <p>Title-tag (Titulo de la pestaña)</p>
       <input
         placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
         type="text"
@@ -75,7 +73,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value= {formData.titleTag}
       />
-      <p>Image Cover</p> 
+      <p>Image Cover (Link hacia la imagen que se requiera como portada, se puede obtener haciendo click derecho sobte cualquier imagen de la página.)</p> 
       <input
         placeholder = "Image Link ej. httpss://w7.pngwing.com/pngs/56/96/png-transparent-flag-of-mexico-flag-of-mexico-united-states-mexican-war-of-independence-mexican-flag-s-free-flag-text-logo.png"
         type="text"
@@ -99,7 +97,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.urlCountry}
       />
-      <p>h1</p>
+      <p>H1 (Es el titulo de la pagina)</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'
         type="text"
@@ -107,7 +105,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.h1}
       />
-      <p>h2</p>
+      <p>H2 (Es el subtitulo de la página)</p>
       <input
         placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
         type="text"
@@ -116,12 +114,6 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.h2}
       />
       <p>Descripcion Larga</p>
-      {/* <textarea
-        placeholder='Descripcion del pais'
-        name="p"
-        onChange={handleChange}
-        value={formData.p}
-      ></textarea> */}
       <div className="editor">
          <ReactQuill
           className="quill"
@@ -136,7 +128,7 @@ const UpdateForm = ({ data, onUpdate }) => {
   }else{
    
     return (
-      <form className='form' onSubmit={handleSubmit}>
+      <form className='form formTexts' onSubmit={handleSubmit}>
         <h1>Add Country</h1>
         <p>Status</p>
         <select name="status" id="status">
@@ -163,7 +155,7 @@ const UpdateForm = ({ data, onUpdate }) => {
           name="countryName"
           onChange={handleChange}
         />
-        <p>metadescription</p>
+        <p>Metadescription (Descriocion para el robot buscador de google, es el texto que aparce en la descripcion del link)</p>
         <textarea
           placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
           type="text"
@@ -178,14 +170,14 @@ const UpdateForm = ({ data, onUpdate }) => {
           placeholder='word1, word2, word3 ...'
           onChange={handleChange}
         />
-        <p>Title-tag</p>
+        <p>Title-tag (Titulo de la pestaña)</p>
         <input
           placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
           type="text"
           name="titleTag"
           onChange={handleChange}
         />
-        <p>Image Cover</p> 
+        <p>Image Cover  (Link hacia la imagen que se requiera como portada, se puede obtener haciendo click derecho sobte cualquier imagen de la página.)</p> 
         <input
         placeholder = "Image Link ej. httpss://w7.pngwing.com/pngs/56/96/png-transparent-flag-of-mexico-flag-of-mexico-united-states-mexican-war-of-independence-mexican-flag-s-free-flag-text-logo.png"
         type="text"
@@ -206,14 +198,14 @@ const UpdateForm = ({ data, onUpdate }) => {
           name="urlCountry"
           onChange={handleChange}
         />
-        <p>h1</p>
+        <p>H1 (Es el titulo de la pagina)</p>
         <input
           placeholder='Encabezado de la página 70 - 80 characters máximo'
           type="text"
           name="h1"
           onChange={handleChange}
         />
-        <p>h2</p>
+        <p>H2 (Es el subtitulo de la página)</p>
         <input
           placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
           type="text"

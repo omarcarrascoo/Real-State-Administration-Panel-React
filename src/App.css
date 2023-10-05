@@ -71,3 +71,17 @@ body{
     background: #000;
     color: #fff;
 }
+
+
+.editor{
+    width: 90%;
+}
+.quill{
+    width: 100%;
+    margin: 20px auto;
+}
+
+.formTexts p {
+    text-align: left!important;
+    width: 85%;
+}
