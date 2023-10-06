@@ -20,44 +20,15 @@ const UpdateForm = ({ data, onUpdate }) => {
     return (
       <form className='form formTexts'  onSubmit={handleSubmit}>
       <h1>Update Property</h1>
-      <p>Status</p>
+      {/* <p>Status</p>
       <select name="status" id="status">
         <option value="true">Active</option>
         <option value="false">Unactive</option>
-      </select>
-      <p>Lenguage</p>
-      <input
-        placeholder='en/es'
-        type="text"
-        name="lenguage"
-        value={formData.lenguage}
-        onChange={handleChange}
-      />
-      <p>Lenguage Alternative Page (Link hacie la página de lenguaje Alternativo)</p>
-      <input
-        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
-        type="text"
-        name="lanLink"
-        value={formData.lanLink}
-        onChange={handleChange}
-      />
-      <p>English</p>
-      <input
-        placeholder='en/es'
-        type="text"
-        name="lenguage"
-        value={formData.lenguage}
-        onChange={handleChange}
-      />
-      <p>Id Propiedad</p>
-      <input
-        
-        type="text"
-        name="posicionListado"
-        onChange={handleChange}
-        value={formData.posicionListado}
-      />
-      <p>Property Name</p>
+      </select> */}
+      <br />
+      <br />
+      <h3>Property Data</h3>
+      <p>Nombre Propiedad (Descripción interna de la propiedad)</p>
       <input
         placeholder='Solo para descripcion interna'
         type="text"
@@ -65,7 +36,89 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.descripcionInterna}
       />
-      <p>Metadescription - Texto descriptivo para buscadores de 150 a 160 characters</p>
+      <p>ID Propiedad Interno (Empezar con 501)</p>
+      <input
+        type="text"
+        name="posicionListado"
+        onChange={handleChange}
+        value={formData.posicionListado}
+      />
+      <p>URL Completa (https://industrylux.com/idioma/bienes-raices-industriales/pais/ciuadad/ desarrollo/categoria/propiedad)</p>
+      <input
+        type="text"
+        name="fullUrl"
+        onChange={handleChange}
+        value={formData.fullUrl}
+      />
+      <p>Link Correspondencia (Link hacia la página de lenguaje alternativo)</p>
+      <input
+        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
+        type="text"
+        name="lanLink"
+        value={formData.lanLink}
+        onChange={handleChange}
+      />
+      <br />
+      <h3>URL</h3>
+      <p>URL Language (es/en)</p>
+      <input
+        placeholder='en/es'
+        type="text"
+        name="lenguage"
+        value={formData.lenguage}
+        onChange={handleChange}
+      />
+      <p>URL Country (mexico)</p>
+      <input
+        placeholder='ej. mexico'
+        type="text"
+        name="urlCountry"
+        onChange={handleChange}
+        value={formData.urlCountry}
+      />
+      <p>URL City (queretaro)</p>
+      <input
+        placeholder='ej. queretaro'
+        type="text"
+        name="urlProvince"
+        onChange={handleChange}
+        value={formData.urlProvince}
+      />
+      <p>URL Development (zona-norte)</p>
+      <input
+        placeholder='ej. monarca'
+        type="text"
+        name="urlCity"
+        onChange={handleChange}
+        value={formData.urlCity}
+      />
+      <p>URL Category (venta-lotes-y-terrenos-industriales)</p>
+      <input
+        placeholder='ej. terrenos industriales'
+        type="text"
+        name="urlCategory"
+        onChange={handleChange}
+        value={formData.urlCategory}
+      />
+      <p>URL Property (con-espuela-ferrocarril)</p>
+      <input
+        placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
+        type="text"
+        name="urlProperty"
+        value={formData.urlProperty}
+        onChange={handleChange}
+      />  
+      <br />
+      <h3>SEO</h3>
+      <p>Title-tag (Titulo que aparece en la pestaña del explorador de 50 to 60 characters)</p>
+      <input
+        placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
+        type="text"
+        name="titleTag"
+        value={formData.titleTag}
+        onChange={handleChange}
+      />
+      <p>Metadescription (Texto descriptivo que se ve en buscadores de 150 a 160 characters)</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
@@ -74,7 +127,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         cols="30" rows="10"
         value={formData.metadescription}
       ></textarea>
-      <p>keywords</p>
+      <p>Keywords (Palabras clave mas relevantes)</p>
       <input
         type="text"
         name="keyWords"
@@ -82,22 +135,24 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.keyWords}
       />
-      <p>URL PROPIEDAD</p>
+      <p>H1 (Titulo de la página 70 - 80 characters máximo)</p>
       <input
-        placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
+        placeholder='Encabezado de la página 70 - 80 characters máximo'
         type="text"
-        name="urlProperty"
-        value={formData.urlProperty}
+        name="h1"
         onChange={handleChange}
+        value={formData.h1}
       />
-      <p>Title-tag - Titulo que aparece en la pestaña del explorador de 50 to 60 characters</p>
+      <p>H2 (Subtitulo la página 80 - 90 characters máximo)</p>
       <input
-        placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
+        placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
         type="text"
-        name="titleTag"
-        value={formData.titleTag}
+        name="h2"
         onChange={handleChange}
+        value={formData.h2}
       />
+      
+      
       <p>DESARROLLO</p>
       <input
         placeholder='ej. monarca'
@@ -130,68 +185,19 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.category}
       />
-      <p>URL DESARROLLO</p>
-      <input
-        placeholder='ej. monarca'
-        type="text"
-        name="urlCity"
-        onChange={handleChange}
-        value={formData.urlCity}
-      />
-      <p>URL ORIGIN COUNTRY</p>
-      <input
-        placeholder='ej. mexico'
-        type="text"
-        name="urlCountry"
-        onChange={handleChange}
-        value={formData.urlCountry}
-      />
-      <p>URL ORIGIN CITY</p>
-      <input
-        placeholder='ej. queretaro'
-        type="text"
-        name="urlProvince"
-        onChange={handleChange}
-        value={formData.urlProvince}
-      />
-      <p>URL CATEGORY</p>
-      <input
-        placeholder='ej. terrenos industriales'
-        type="text"
-        name="urlCategory"
-        onChange={handleChange}
-        value={formData.urlCategory}
-      />
-      <p>H1 - Titulo de la página 70 - 80 characters máximo</p>
-      <input
-        placeholder='Encabezado de la página 70 - 80 characters máximo'
-        type="text"
-        name="h1"
-        onChange={handleChange}
-        value={formData.h1}
-      />
-      <p>H2 - Subtitulo la página 80 - 90 characters máximo </p>
-      <input
-        placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
-        type="text"
-        name="h2"
-        onChange={handleChange}
-        value={formData.h2}
-      />
-      <p>Descripcion Larga</p>
-      {/* <textarea
-        placeholder='Descripcion del desarrollo'
-        name="p"
-        onChange={handleChange}
-        value={formData.p}
-      ></textarea> */}
+      
+      
+      <p>Descripción Larga (Detalle de la propiedad)</p>
+      <div className="editor">
       <ReactQuill
           className="quill"
           theme="snow"
           value={value}
           onChange={setValue}
         />
-      <p>Video</p>
+      </div>
+      <p>Video (Url YouTube tomar Id del video: https://www.youtube.com/watch? v=_TIjDbMWG2Q&feature=youtu.be
+Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
       <input
         
         type="text"
@@ -199,21 +205,32 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.videos}
       />
-      <p>Año de construcción</p>
-      <input
-        
-        type="text"
-        name="anoConstruccion"
-        onChange={handleChange}
-        value={formData.anoConstruccion}
-      />
-      <p>Uso suelo</p>
+      <h3>CONTACTO</h3>
+      <p>Telefono (+524425950798)</p>
       <input
         type="text"
-        name="usoSuelo"
+        name="telefono"
         onChange={handleChange}
-        value={formData.usoSuelo}
+        value={formData.telefono}
       />
+      <p>WhatsApp (524425950798)</p>
+      <input
+        type="text"
+        name="whatsApp"
+        onChange={handleChange}
+        value={formData.whatsApp}
+      />
+      <p>Email (industrylux@industrylux.com)</p>
+      <input
+        type="text"
+        name="email"
+        onChange={handleChange}
+        value={formData.email}
+      />
+
+
+
+      <h3>DESCRIPCION</h3>
       <p>M2 Terreno</p>
       <input
         type="text"
@@ -228,19 +245,28 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.m2Construcion}
       />
-      <p>Precio String</p>
+      <p>Precio Alfabetico</p>
       <input
         type="text"
         name="precioString"
         onChange={handleChange}
         value={formData.precioString}
       />
-      <p>Precio</p>
+      <p>Precio Numerico</p>
       <input
         type="text"
         name="precio"
         onChange={handleChange}
         value={formData.precio}
+      />
+      
+      
+      <p>Uso suelo</p>
+      <input
+        type="text"
+        name="usoSuelo"
+        onChange={handleChange}
+        value={formData.usoSuelo}
       />
       <p>Precio M2</p>
       <input
@@ -410,27 +436,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.ubicacionGps}
       />
-      <p>Telefono</p>
-      <input
-        type="text"
-        name="telefono"
-        onChange={handleChange}
-        value={formData.telefono}
-      />
-      <p>whatsApp</p>
-      <input
-        type="text"
-        name="whatsApp"
-        onChange={handleChange}
-        value={formData.whatsApp}
-      />
-      <p>email</p>
-      <input
-        type="text"
-        name="email"
-        onChange={handleChange}
-        value={formData.email}
-      />
+     
       <p>Restricciones</p>
       <input
         type="text"
@@ -438,6 +444,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.restricciones}
       />
+       <p>Observaciones</p>
+      <input
+        type="text"
+        name="observaciones"
+        onChange={handleChange}
+        value={formData.observaciones}
+      />
+      <h3>REDES</h3>
       <p>Compartir Redes</p>
       <input
         type="text"
@@ -452,13 +466,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.fuenteOriginal}
       />
-       <p>Observaciones</p>
-      <input
-        type="text"
-        name="observaciones"
-        onChange={handleChange}
-        value={formData.observaciones}
-      />
+      
        <p>Clave Original</p>
       <input
         type="text"
@@ -466,14 +474,14 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.claveOriginal}
       />
-       <p>inmobiliaria</p>
+       <p>Inmobiliaria</p>
       <input
         type="text"
         name="inmobiliaria"
         onChange={handleChange}
         value={formData.inmobiliaria}
       />
-       <p>agenteOriginal</p>
+       <p>Agente Original</p>
       <input
         type="text"
         name="agenteOriginal"
@@ -485,42 +493,103 @@ const UpdateForm = ({ data, onUpdate }) => {
     );
   } else {
     return (
-      <form className='form formTexts' onSubmit={handleSubmit}>
-      <h1>Add Property</h1>
-      <p>Status</p>
+      <form className='form formTexts'  onSubmit={handleSubmit}>
+      <h1>Update Property</h1>
+      {/* <p>Status</p>
       <select name="status" id="status">
         <option value="true">Active</option>
         <option value="false">Unactive</option>
-      </select>
-      <p>Lenguage</p>
-      <input
-        placeholder='en/es'
-        type="text"
-        name="lenguage"
-        onChange={handleChange}
-      />
-      <p>Lenguage Alternative Page(Link hacia la pagina alterna)</p>
-      <input
-        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
-        type="text"
-        name="lanLink"
-        onChange={handleChange}
-      />
-      <p>ID PROPIEDAD</p>
-      <input
-        
-        type="text"
-        name="posicionListado"
-        onChange={handleChange}
-      />
-      <p>Property Name</p>
+      </select> */}
+      <br />
+      <br />
+      <h3>Property Data</h3>
+      <p>Nombre Propiedad (Descripción interna de la propiedad)</p>
       <input
         placeholder='Solo para descripcion interna'
         type="text"
         name="descripcionInterna"
         onChange={handleChange}
+
       />
-      <p>Metadescription (Descriocion para el robot buscador de google, es el texto que aparce en la descripcion del link)</p>
+      <p>ID Propiedad Interno (Empezar con 501)</p>
+      <input
+        type="text"
+        name="posicionListado"
+        onChange={handleChange}
+
+      />
+      <p>URL Completa (https://industrylux.com/idioma/bienes-raices-industriales/pais/ciuadad/ desarrollo/categoria/propiedad)</p>
+      <input
+        type="text"
+        name="fullUrl"
+        onChange={handleChange}
+
+      />
+      <p>Link Correspondencia (Link hacia la página de lenguaje alternativo)</p>
+      <input
+        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
+        type="text"
+        name="lanLink"
+
+        onChange={handleChange}
+      />
+      <br />
+      <h3>URL</h3>
+      <p>URL Language (es/en)</p>
+      <input
+        placeholder='en/es'
+        type="text"
+        name="lenguage"
+
+        onChange={handleChange}
+      />
+      <p>URL Country (mexico)</p>
+      <input
+        placeholder='ej. mexico'
+        type="text"
+        name="urlCountry"
+        onChange={handleChange}
+
+      />
+      <p>URL City (queretaro)</p>
+      <input
+        placeholder='ej. queretaro'
+        type="text"
+        name="urlProvince"
+        onChange={handleChange}
+        
+      />
+      <p>URL Development (zona-norte)</p>
+      <input
+        placeholder='ej. monarca'
+        type="text"
+        name="urlCity"
+        onChange={handleChange}
+      />
+      <p>URL Category (venta-lotes-y-terrenos-industriales)</p>
+      <input
+        placeholder='ej. terrenos industriales'
+        type="text"
+        name="urlCategory"
+        onChange={handleChange}
+      />
+      <p>URL Property (con-espuela-ferrocarril)</p>
+      <input
+        placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
+        type="text"
+        name="urlProperty"
+        onChange={handleChange}
+      />  
+      <br />
+      <h3>SEO</h3>
+      <p>Title-tag (Titulo que aparece en la pestaña del explorador de 50 to 60 characters)</p>
+      <input
+        placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
+        type="text"
+        name="titleTag"
+        onChange={handleChange}
+      />
+      <p>Metadescription (Texto descriptivo que se ve en buscadores de 150 a 160 characters)</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
         type="text"
@@ -528,27 +597,29 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         cols="30" rows="10"
       ></textarea>
-      <p>keywords</p>
+      <p>Keywords (Palabras clave mas relevantes)</p>
       <input
         type="text"
         name="keyWords"
         placeholder='word1, word2, word3 ...'
         onChange={handleChange}
       />
-      <p>URL PROPIEDAD</p>
+      <p>H1 (Titulo de la página 70 - 80 characters máximo)</p>
       <input
-        placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
+        placeholder='Encabezado de la página 70 - 80 characters máximo'
         type="text"
-        name="urlProperty"
+        name="h1"
         onChange={handleChange}
       />
-      <p>Title-tag - Titulo que aparece en la pestaña del explorador de 50 to 60 characters</p>
+      <p>H2 (Subtitulo la página 80 - 90 characters máximo)</p>
       <input
-        placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
+        placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
         type="text"
-        name="titleTag"
+        name="h2"
         onChange={handleChange}
       />
+      
+      
       <p>DESARROLLO</p>
       <input
         placeholder='ej. monarca'
@@ -572,317 +643,309 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Category</p>
       <input
-        placeholder='ej. Terrenos Industriales'
+        placeholder='ej. terrenos industriales'
         type="text"
         name="category"
         onChange={handleChange}
       />
-      <p>URL DESARROLLO</p>
-      <input
-        placeholder='ej. monarca'
-        type="text"
-        name="urlCity"
-        onChange={handleChange}
-      />
-      <p>URL ORIGIN COUNTRY</p>
-      <input
-        placeholder='ej. mexico'
-        type="text"
-        name="urlCountry"
-        onChange={handleChange}
-      />
-      <p>URL ORIGIN CITY</p>
-      <input
-        placeholder='ej. queretaro'
-        type="text"
-        name="urlProvince"
-        onChange={handleChange}
-      />
-      <p>URL CATEGORY</p>
-      <input
-        placeholder='ej. terrenos-industriales'
-        type="text"
-        name="urlCategory"
-        onChange={handleChange}
-      />
-      <p>H1 - Titulo de la página 70 - 80 characters máximo</p>
-      <input
-        placeholder='Encabezado de la página 70 - 80 characters máximo'
-        type="text"
-        name="h1"
-        onChange={handleChange}
-      />
-      <p>H2 - Subtitulo de la página 80 - 90 characters máximo</p>
-      <input
-        placeholder='Soporte para el Encabezado de la página 80 - 90 characters máximo'
-        type="text"
-        name="h2"
-        onChange={handleChange}
-      />
-      <p>Descripcion Larga</p>
-      {/* <textarea
-        placeholder='Descripcion del desarrollo'
-        name="p"
-        onChange={handleChange}
-      ></textarea> */}
+      
+      
+      <p>Descripción Larga (Detalle de la propiedad)</p>
       <div className="editor">
-         <ReactQuill
+      <ReactQuill
           className="quill"
           theme="snow"
-          value={value}
           onChange={setValue}
         />
-         </div>
-      <p>Video</p>
+      </div>
+      <p>Video (Url YouTube tomar Id del video: https://www.youtube.com/watch? v=_TIjDbMWG2Q&feature=youtu.be
+Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
       <input
         
         type="text"
         name="videos"
         onChange={handleChange}
       />
-      
-      <p>Año de construcción</p>
-      <input
-        
-        type="text"
-        name="anoConstruccion"
-        onChange={handleChange}
-      />
-      <p>Uso suelo</p>
+      <h3>CONTACTO</h3>
+      <p>Telefono (+524425950798)</p>
       <input
         type="text"
-        name="usoSuelo"
+        name="telefono"
         onChange={handleChange}
       />
+      <p>WhatsApp (524425950798)</p>
+      <input
+        type="text"
+        name="whatsApp"
+        onChange={handleChange}
+      />
+      <p>Email (industrylux@industrylux.com)</p>
+      <input
+        type="text"
+        name="email"
+        onChange={handleChange}
+      />
+
+
+
+      <h3>DESCRIPCION</h3>
       <p>M2 Terreno</p>
       <input
         type="text"
         name="m2Terreno"
         onChange={handleChange}
+
       />
       <p>M2 Construcción</p>
       <input
         type="text"
         name="m2Construcion"
         onChange={handleChange}
+
       />
-      <p>Precio String</p>
+      <p>Precio Alfabetico</p>
       <input
         type="text"
         name="precioString"
         onChange={handleChange}
+
       />
-      <p>Precio</p>
+      <p>Precio Numerico</p>
       <input
         type="text"
         name="precio"
         onChange={handleChange}
+      />
+      
+      
+      <p>Uso suelo</p>
+      <input
+        type="text"
+        name="usoSuelo"
+        onChange={handleChange}
+  
       />
       <p>Precio M2</p>
       <input
         type="text"
         name="precioM2"
         onChange={handleChange}
+    
       />
       <p>Altura</p>
       <input
         type="text"
         name="altura"
         onChange={handleChange}
+      
       />
       <p>Frente</p>
       <input
         type="text"
         name="frente"
         onChange={handleChange}
+      
       />
       <p>Fondo</p>
       <input
         type="text"
         name="fondo"
         onChange={handleChange}
+      
       />
       <p>Rampas</p>
       <input
         type="text"
         name="rampas"
         onChange={handleChange}
+    
       />
       <p>Andenes</p>
       <input
         type="text"
         name="andenes"
         onChange={handleChange}
+      
       />
       <p>Oficinas</p>
       <input
         type="text"
         name="oficinas"
         onChange={handleChange}
+       
       />
       <p>Estacionamineto</p>
       <input
         type="text"
         name="estacionamineto"
         onChange={handleChange}
+        
       />
       <p>Electricidad</p>
       <input
         type="text"
         name="electricidad"
         onChange={handleChange}
+        
       />
       <p>Agua</p>
       <input
         type="text"
         name="agua"
         onChange={handleChange}
+        
       />
       <p>Andenes</p>
       <input
         type="text"
         name="andenes"
         onChange={handleChange}
+        
       />
       <p>Gas Natural</p>
       <input
         type="text"
         name="gasNatural"
         onChange={handleChange}
+        
       />
       <p>Planta Tratamiento</p>
       <input
         type="text"
         name="plantaTratamiento"
         onChange={handleChange}
+        
       />
       <p>Areas</p>
       <input
         type="text"
         name="areas"
         onChange={handleChange}
+        
       />
       <p>Acabados</p>
       <input
         type="text"
         name="acabados"
         onChange={handleChange}
+      
       />
       <p>Equipo</p>
       <input
         type="text"
         name="equipo"
         onChange={handleChange}
+      
       />
       <p>otros</p>
       <input
         type="text"
         name="otros"
         onChange={handleChange}
+      
       />
       <p>Costo Mantenimiento</p>
       <input
         type="text"
         name="costoMantenimiento"
         onChange={handleChange}
+      
       />
       <p>Consto Vigilancia</p>
       <input
         type="text"
         name="constoVigilancia"
         onChange={handleChange}
+        
       />
       <p>Costo Predial</p>
       <input
         type="text"
         name="costoPredial"
         onChange={handleChange}
+       
       />
       <p>Atractivos Cerca</p>
       <input
         type="text"
         name="atractivosCerca"
         onChange={handleChange}
+        
       />
       <p>Tiendas Cerca</p>
       <input
         type="text"
         name="tiendasCerca"
         onChange={handleChange}
+        
       />
       <p>Direccion</p>
       <input
         type="text"
         name="direccion"
         onChange={handleChange}
+        
       />
       <p>Ubicacion Gps</p>
       <input
         type="text"
         name="ubicacionGps"
         onChange={handleChange}
+        
       />
-      <p>Telefono</p>
-      <input
-        type="text"
-        name="telefono"
-        onChange={handleChange}
-      />
-      <p>whatsApp</p>
-      <input
-        type="text"
-        name="whatsApp"
-        onChange={handleChange}
-      />
-      <p>email</p>
-      <input
-        type="text"
-        name="email"
-        onChange={handleChange}
-      />
+     
       <p>Restricciones</p>
       <input
         type="text"
         name="equirestriccionespo"
         onChange={handleChange}
-      />
-      <p>Compartir Redes</p>
-      <input
-        type="text"
-        name="compartirRedes"
-        onChange={handleChange}
-      />
-       <p>Fuente Original</p>
-      <input
-        type="text"
-        name="fuenteOriginal"
-        onChange={handleChange}
+        
       />
        <p>Observaciones</p>
       <input
         type="text"
         name="observaciones"
         onChange={handleChange}
+        
       />
+      <h3>REDES</h3>
+      <p>Compartir Redes</p>
+      <input
+        type="text"
+        name="compartirRedes"
+        onChange={handleChange}
+        
+      />
+       <p>Fuente Original</p>
+      <input
+        type="text"
+        name="fuenteOriginal"
+        onChange={handleChange}
+        
+      />
+      
        <p>Clave Original</p>
       <input
         type="text"
         name="claveOriginal"
         onChange={handleChange}
+      
       />
-       <p>inmobiliaria</p>
+       <p>Inmobiliaria</p>
       <input
         type="text"
         name="inmobiliaria"
         onChange={handleChange}
+      
       />
-       <p>agenteOriginal</p>
+       <p>Agente Original</p>
       <input
         type="text"
         name="agenteOriginal"
         onChange={handleChange}
+        
       />
-      <button type="submit">Add</button>
+      <button type="submit">ADD</button>
     </form>
     );
   }

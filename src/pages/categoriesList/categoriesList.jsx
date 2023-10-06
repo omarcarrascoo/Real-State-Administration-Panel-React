@@ -86,7 +86,7 @@ export default function CategoriesList() {
         rows={users}
         disableSelectionOnClick
         columns={columns}
-        pageSize={8}
+        pageSize={100}
         checkboxSelection
       />
     </div>

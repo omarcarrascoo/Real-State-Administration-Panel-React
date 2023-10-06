@@ -38,14 +38,8 @@ export default function Sidebar() {
           <ul className="sidebarList">
             <Link to="/panel/dashboard" className="link">
             <li className="sidebarListItem">
-              <LineStyle className="sidebarIcon" />
-              Home
-            </li>
-            </Link>
-            <Link to="/panel/homes" className="link">
-            <li className="sidebarListItem">
-              <LineStyle className="sidebarIcon" />
-              Index Pages
+              <TrendingUp className="sidebarIcon" />
+              Analytics
             </li>
             </Link>
           </ul>
@@ -53,16 +47,10 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Actions</h3>
           <ul className="sidebarList">
-            <Link to="/panel/users" className="link">
+            <Link to="/panel/homes" className="link">
               <li className="sidebarListItem">
-                <PermIdentity className="sidebarIcon" />
-                Users
-              </li>
-            </Link>
-            <Link to="/panel/products" className="link">
-              <li className="sidebarListItem">
-                <Storefront className="sidebarIcon" />
-                Properties
+                <LineStyle className="sidebarIcon" />
+                Home Pages
               </li>
             </Link>
             <Link to="/panel/countries" className="link">
@@ -81,6 +69,12 @@ export default function Sidebar() {
               <li className="sidebarListItem">
                 <ZoomIn className="sidebarIcon" />
                 Development
+              </li>
+            </Link>
+            <Link to="/panel/products" className="link">
+              <li className="sidebarListItem">
+                <Storefront className="sidebarIcon" />
+                Properties
               </li>
             </Link>
           </ul>
@@ -106,13 +100,15 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Staff</h3>
           <ul className="sidebarList">
+            <Link to="/panel/users" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
+                Users
+              </li>
+            </Link>
             <li className="sidebarListItem">
               <WorkOutline className="sidebarIcon" />
               Manage
-            </li>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
             </li>
             <li onClick={()=>logOut()}className="sidebarListItem">
               <Cancel className="sidebarIcon" />

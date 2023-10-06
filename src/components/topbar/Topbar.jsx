@@ -1,6 +1,6 @@
 import React from "react";
 import "./topbar.css";
-import { NotificationsNone, Language, Settings } from "@material-ui/icons";
+import { NotificationsNone, Language, Settings, SearchOutlined } from "@material-ui/icons";
 
 export default function Topbar() {
   const localStorageValue = localStorage.getItem("persist:root");
@@ -15,7 +15,10 @@ export default function Topbar() {
           <img src="https://industrylux.com/public/images/logoIndustryluxLong.jpg" alt="Industrilux logo" />
         </div>
         <div className="topRight">
-          <p>{username}</p>
+          <form className="searchBarPanel" action="POST">
+            {<SearchOutlined/>}
+            <input type="text" placeholder="Search properties" />
+          </form>
         </div>
       </div>
     </div>

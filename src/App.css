@@ -85,3 +85,60 @@ body{
     text-align: left!important;
     width: 85%;
 }
+
+.MuiDataGrid-columnsContainer{
+    position: fixed;
+}
+.MuiDataGrid-columnHeaderWrapper{
+    position: fixed;
+    background: rgba( 255, 255, 255, 0.25 );
+box-shadow: 0 8px 32px 0 rgba(62, 62, 62, 0.37);
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+    z-index: 10;
+}
+.sidebar{
+    z-index: 100;
+}
+.addNewBtn{
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+}
+  .addNewBtn button{
+    
+    color: #fff;
+    background: #3bb077;
+    border: none;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    margin: 30px;
+  }
+  .MuiTablePagination-root{
+    position: fixed;
+    z-index: 600;
+    bottom: 0;
+    right: 0;
+    margin: 30px;
+  }
+
+  .searchBarPanel input{
+    color: #fff;
+    background: none;
+    width: 500px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 100%;
+
+  }
+  .searchBarPanel{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #fff;
+    height: 50px;
+    padding: 0px 15px;
+    border-radius: 10px;
+  }

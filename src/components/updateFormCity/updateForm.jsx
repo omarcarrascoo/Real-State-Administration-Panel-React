@@ -40,13 +40,21 @@ const UpdateForm = ({ data, onUpdate }) => {
         value={formData.lanLink}
         onChange={handleChange}
       />
-      <p>Development Name</p>
+      <p>Internal Name (Uniq Identifier)</p>
       <input
         placeholder='Nombre del Desarrollo'
         type="text"
         name="cityName"
         onChange={handleChange}
         value={formData.cityName}
+      />
+      <p>Menu Name - Nombre como aparecera en el menu</p>
+      <input
+        placeholder='Nombre del menu: ej.México'
+        type="text"
+        name="name"
+        onChange={handleChange}
+        value={formData.name}
       />
       <p>Metadescription (Descriocion para el robot buscador de google, es el texto que aparce en la descripcion del link)</p>
       <textarea
@@ -162,11 +170,18 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="lanLink"
         onChange={handleChange}
       />
-      <p>Development Name</p>
+      <p>Internal Name (Uniq Identifier)</p>
       <input
         placeholder='Nombre del Desarrollo'
         type="text"
         name="cityName"
+        onChange={handleChange}
+      />
+      <p>Menu Name - Nombre como aparecera en el menu</p>
+      <input
+        placeholder='Nombre del menu: ej.México'
+        type="text"
+        name="name"
         onChange={handleChange}
       />
       <p>Metadescription (Descriocion para el robot buscador de google, es el texto que aparce en la descripcion del link)</p>

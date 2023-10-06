@@ -47,6 +47,7 @@ export default function ProductList() {
   console.log(users);
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
+    { field: "posicionListado", headerName: "Internal Key", width: 190 },
     {
       field: "product",
       headerName: "Product",
@@ -70,17 +71,17 @@ export default function ProductList() {
     {
       field: "urlCountry",
       headerName: "Country Url",
-      width: 120,
+      width: 150,
     },
     {
       field: "urlProvince",
       headerName: "Province Url",
-      width: 120,
+      width: 150,
     },
     {
       field: "urlCity",
       headerName: "Development Url",
-      width: 200,
+      width: 190,
     },
     {
       field: "status",
