@@ -35,19 +35,27 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Lenguage Alternative Page(Link hacia la pagina alterna)</p>
       <input
-        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
+        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
         type="text"
         name="lanLink"
         value={formData.lanLink}
         onChange={handleChange}
       />
-      <p>Category Name</p>
+      <p>Category Internal Name - For internal description</p>
       <input
         placeholder='Nombre del pais: ej.México'
         type="text"
         name="categoryTitle"
         onChange={handleChange}
         value={formData.categoryTitle}
+      />
+      <p>Category Menu Name - How is shown in the menu</p>
+      <input
+        placeholder='Nombre del pais: ej.México'
+        type="text"
+        name="name"
+        onChange={handleChange}
+        value={formData.name}
       />
       <p>Metadescription (Descriocion para el robot buscador de google, es el texto que aparce en la descripcion del link)</p>
       <textarea
@@ -134,7 +142,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
        <p>Lenguage Alternative Page(Link hacia la pagina alterna)</p>
       <input
-        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
+        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
         type="text"
         name="lanLink"
         onChange={handleChange}
@@ -144,6 +152,13 @@ const UpdateForm = ({ data, onUpdate }) => {
         placeholder='Nombre de la categoria: ej. Casas en Renta'
         type="text"
         name="categoryTitle"
+        onChange={handleChange}
+      />
+      <p>Category Menu Name - How is shown in the menu</p>
+      <input
+        placeholder='Nombre del pais: ej.México'
+        type="text"
+        name="name"
         onChange={handleChange}
       />
       <p>Metadescription (Descriocion para el robot buscador de google, es el texto que aparce en la descripcion del link)</p>

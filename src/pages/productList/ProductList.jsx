@@ -32,7 +32,7 @@ export default function ProductList() {
       const user = parsedValue.user || "";
       const currentUser = user ? JSON.parse(user).currentUser : {};
       const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-    const response = await axios.delete(`https://industrylux.com/api/industrialProperties/${id}`, {
+    const response = await axios.delete(`http://localhost:1337/api/industrialProperties/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         token: `Bearer ${TOKEN}`,
@@ -55,7 +55,7 @@ export default function ProductList() {
       renderCell: (params) => {
         return (
           <div className="productListItem">
-            <img className="productListImgSpecial" src={`https://industrylux.com/${params.row.imgRoute[0]}`} alt="" />
+            <img className="productListImgSpecial" src={`http://localhost:1337/${params.row.imgRoute[0]}`} alt="" />
             {params.row.name}
           </div>
         );

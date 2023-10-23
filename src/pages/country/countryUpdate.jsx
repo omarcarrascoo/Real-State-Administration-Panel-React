@@ -17,9 +17,8 @@ const UpdateCountry = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`https://industrylux.com/api/countries/${id}`);
+      const response = await fetch(`http://localhost:1337/api/countries/${id}`);
       const data = await response.json();
-      
       setData(data);
     } catch (error) {
       console.log('Error fetching data:', error);
@@ -34,7 +33,7 @@ const UpdateCountry = () => {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-      const response = await axios.put(`https://industrylux.com/api/countries/${id}`, updatedData, {
+      const response = await axios.put(`http://localhost:1337/api/countries/${id}`, updatedData, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,

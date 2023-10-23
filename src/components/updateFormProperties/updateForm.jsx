@@ -2,20 +2,29 @@ import React, { useState } from 'react';
 import './updateForm.css'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import DropDownCountry from '../dropdownCountry/DropDownCountry';
+import DropDownLan from '../dropDownLan/DropDownLan';
+import DropDownCategories from '../dropDownCategories/DropDownCategories';
 
 const UpdateForm = ({ data, onUpdate }) => {
   const [formData, setFormData] = useState(data);
   const [value, setValue] = useState(data?.p || "" );
+  const [lenguage, setLanUrl] = useState(data?.lenguage || "");
+  const [countryUrl, setCountryUrl] = useState(data?.urlCountry || "");
+  const [proviceUrl, setProvinceUrl] = useState(data?.urlProvince ||"")
+  const [developmentUrl, setDevelopmentUrl] = useState(data?.urlCity || "")
+  const [categoriesUrl, setCategoriesUrl] = useState(data?.urlCategory || "")
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value});
   };
-
+  // const loadOption = (data) =>{
+  //   setData(data)
+  // }
   const handleSubmit = (e) => {
     e.preventDefault();
-    const updatedFormData = { ...formData, p: value };
+    const updatedFormData = { ...formData, lenguage: lenguage,urlCategory: categoriesUrl, p: value, urlCity: developmentUrl, urlProvince: proviceUrl, urlCountry:countryUrl};
     onUpdate(updatedFormData);
   };
-
   if (data) {
     return (
       <form className='form formTexts'  onSubmit={handleSubmit}>
@@ -43,7 +52,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.posicionListado}
       />
-      <p>URL Completa (https://industrylux.com/idioma/bienes-raices-industriales/pais/ciuadad/ desarrollo/categoria/propiedad)</p>
+      <p>URL Completa (http://localhost:1337/idioma/bienes-raices-industriales/pais/ciuadad/ desarrollo/categoria/propiedad)</p>
       <input
         type="text"
         name="fullUrl"
@@ -52,15 +61,15 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Link Correspondencia (Link hacia la página de lenguaje alternativo)</p>
       <input
-        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
+        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
         type="text"
         name="lanLink"
         value={formData.lanLink}
         onChange={handleChange}
       />
       <br />
-      <h3>URL</h3>
-      <p>URL Language (es/en)</p>
+      {/* <h3>URL</h3> */}
+      {/* <p>URL Language (es/en)</p>
       <input
         placeholder='en/es'
         type="text"
@@ -76,6 +85,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.urlCountry}
       />
+      <DropDownCountry/>
       <p>URL City (queretaro)</p>
       <input
         placeholder='ej. queretaro'
@@ -107,7 +117,61 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="urlProperty"
         value={formData.urlProperty}
         onChange={handleChange}
-      />  
+      />   */}
+      <h3>URL</h3>
+      <p>URL Language (es/en)</p>
+      {/* <input
+        placeholder='en/es'
+        type="text"
+        name="lenguage"
+
+        onChange={handleChange}
+      /> */}
+      <DropDownLan setLan={setLanUrl}/>
+      <p>URL Country (mexico)</p>
+      {/* <input
+        placeholder='ej. mexico'
+        type="text"
+        name="urlCountry"
+        onChange={handleChange}
+
+      /> */}
+      <DropDownCountry allCountries={true} lan={lenguage} setOptions= {setCountryUrl}/>
+      <p>URL City (queretaro)</p>
+      {/* <input
+        placeholder='ej. queretaro'
+        type="text"
+        name="urlProvince"
+        onChange={handleChange}
+        
+      /> */}
+      <DropDownCountry City={countryUrl} lan={lenguage} setOptions= {setProvinceUrl}/>
+      <p>URL Development (zona-norte)</p>
+      {/* <input
+        placeholder='ej. monarca'
+        type="text"
+        name="urlCity"
+        onChange={handleChange}
+      /> */}
+      <DropDownCountry Developmnet={proviceUrl} lan={lenguage}  setOptions= {setDevelopmentUrl} />
+
+      
+      <p>URL Category (venta-lotes-y-terrenos-industriales)</p>
+      {/* <input
+        placeholder='ej. terrenos industriales'
+        type="text"
+        name="urlCategory"
+        onChange={handleChange}
+      /> */}
+      
+      <DropDownCategories lan= {lenguage} setOptions = {setCategoriesUrl}/>
+      <input
+        placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
+        type="text"
+        name="urlProperty"
+        value={formData.urlProperty}
+        onChange={handleChange}
+      /> 
       <br />
       <h3>SEO</h3>
       <p>Title-tag (Titulo que aparece en la pestaña del explorador de 50 to 60 characters)</p>
@@ -518,7 +582,7 @@ Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
         onChange={handleChange}
 
       />
-      <p>URL Completa (https://industrylux.com/idioma/bienes-raices-industriales/pais/ciuadad/ desarrollo/categoria/propiedad)</p>
+      <p>URL Completa (http://localhost:1337/idioma/bienes-raices-industriales/pais/ciuadad/ desarrollo/categoria/propiedad)</p>
       <input
         type="text"
         name="fullUrl"
@@ -527,7 +591,7 @@ Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
       />
       <p>Link Correspondencia (Link hacia la página de lenguaje alternativo)</p>
       <input
-        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
+        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
         type="text"
         name="lanLink"
 
@@ -536,43 +600,50 @@ Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
       <br />
       <h3>URL</h3>
       <p>URL Language (es/en)</p>
-      <input
+      {/* <input
         placeholder='en/es'
         type="text"
         name="lenguage"
 
         onChange={handleChange}
-      />
+      /> */}
+      <DropDownLan setLan={setLanUrl}/>
       <p>URL Country (mexico)</p>
-      <input
+      {/* <input
         placeholder='ej. mexico'
         type="text"
         name="urlCountry"
         onChange={handleChange}
 
-      />
+      /> */}
+      <DropDownCountry allCountries={true} lan={lenguage} setOptions= {setCountryUrl}/>
       <p>URL City (queretaro)</p>
-      <input
+      {/* <input
         placeholder='ej. queretaro'
         type="text"
         name="urlProvince"
         onChange={handleChange}
         
-      />
+      /> */}
+      <DropDownCountry City={countryUrl} lan={lenguage} setOptions= {setProvinceUrl}/>
       <p>URL Development (zona-norte)</p>
-      <input
+      {/* <input
         placeholder='ej. monarca'
         type="text"
         name="urlCity"
         onChange={handleChange}
-      />
+      /> */}
+      <DropDownCountry Developmnet={proviceUrl} lan={lenguage}  setOptions= {setDevelopmentUrl} />
+
+      
       <p>URL Category (venta-lotes-y-terrenos-industriales)</p>
-      <input
+      {/* <input
         placeholder='ej. terrenos industriales'
         type="text"
         name="urlCategory"
         onChange={handleChange}
-      />
+      /> */}
+      <DropDownCategories lan= {lenguage} setOptions = {setCategoriesUrl}/>
       <p>URL Property (con-espuela-ferrocarril)</p>
       <input
         placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"

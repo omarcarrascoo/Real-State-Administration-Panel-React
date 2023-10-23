@@ -44,7 +44,7 @@ function ImageVisualizer({ images }) {
         const user = parsedValue.user || "";
         const currentUser = user ? JSON.parse(user).currentUser : {};
         const TOKEN = currentUser && currentUser.accessToken ? currentUser.accessToken : '';
-        const response = await axios.put(`https://industrylux.com/api/propertyImage/deleteImg/${id}`, imagesDes, {
+        const response = await axios.put(`http://localhost:1337/api/propertyImage/deleteImg/${id}`, imagesDes, {
         headers: {
           'Content-Type': 'application/json',
           token: `Bearer ${TOKEN}`,
@@ -65,7 +65,7 @@ function ImageVisualizer({ images }) {
           {images.imgRoute.map((image, index) => (
             <div key={index} className="imgBox">
                 <div className="imgImgBox">
-                    <img className='imageProperties' key={index} src={`https://industrylux.com/${image}`} alt={`Image ${index}`} />
+                    <img className='imageProperties' key={index} src={`http://localhost:1337/${image}`} alt={`Image ${index}`} />
                 </div>
                 <div className="altImgBox">
                     <form action="">
