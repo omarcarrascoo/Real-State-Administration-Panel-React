@@ -34,7 +34,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Lenguage Alternative Page (Link hacie la página de lenguaje Alternativo)</p>
       <input
-        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
         type="text"
         name="lanLink"
         value={formData.lanLink}
@@ -157,7 +157,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Lenguage Alternative Page(Link hacia la pagina alterna)</p>
       <input
-        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
         type="text"
         name="lanLink"
         onChange={handleChange}

@@ -11,7 +11,7 @@ function DropDownCountry({ Country, City, Developmnet, allCountries,lan, setOpti
   useEffect(() => {
     const fetchData = async (key) => {
       try {
-        const response = await fetch(`http://localhost:1337/api/${key}`);
+        const response = await fetch(`https://industrylux.com/api/${key}`);
         const data = await response.json();
         const filterData = data.filter(data => data.lenguage === lan);
         setData(filterData);

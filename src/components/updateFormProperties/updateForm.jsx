@@ -52,7 +52,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.posicionListado}
       />
-      <p>URL Completa (http://localhost:1337/idioma/bienes-raices-industriales/pais/ciuadad/ desarrollo/categoria/propiedad)</p>
+      <p>URL Completa (https://industrylux.com/idioma/bienes-raices-industriales/pais/ciuadad/ desarrollo/categoria/propiedad)</p>
       <input
         type="text"
         name="fullUrl"
@@ -61,7 +61,7 @@ const UpdateForm = ({ data, onUpdate }) => {
       />
       <p>Link Correspondencia (Link hacia la página de lenguaje alternativo)</p>
       <input
-        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
         type="text"
         name="lanLink"
         value={formData.lanLink}
@@ -582,7 +582,7 @@ Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
         onChange={handleChange}
 
       />
-      <p>URL Completa (http://localhost:1337/idioma/bienes-raices-industriales/pais/ciuadad/ desarrollo/categoria/propiedad)</p>
+      <p>URL Completa (https://industrylux.com/idioma/bienes-raices-industriales/pais/ciuadad/ desarrollo/categoria/propiedad)</p>
       <input
         type="text"
         name="fullUrl"
@@ -591,7 +591,7 @@ Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
       />
       <p>Link Correspondencia (Link hacia la página de lenguaje alternativo)</p>
       <input
-        placeholder='http://localhost:1337/en/mexico/queretaro/airport-area/'
+        placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
         type="text"
         name="lanLink"
 
