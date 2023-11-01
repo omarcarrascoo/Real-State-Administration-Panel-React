@@ -13,7 +13,7 @@ function DropDownCategories({setOptions, lan}) {
     useEffect(()=>{
         const fetchData = async (key) => {
             try {
-              const response = await fetch(`https://industrylux.com/api/categories/pages`);
+              const response = await fetch(`https://industrylux.com/api/categories/pages`); 
               const data = await response.json();
               setData(data);
               console.log(data);
