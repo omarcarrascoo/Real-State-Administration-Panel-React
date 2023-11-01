@@ -91,7 +91,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         onChange={handleChange}
         value={formData.urlCategory}
       />
-      <p>URL COUNTRY</p>
+      {/* <p>URL COUNTRY</p>
       <input
         placeholder='ej. estados-unidos'
         type="text"
@@ -106,7 +106,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="urlProvince"
         onChange={handleChange}
         value={formData.urlProvince}
-      />
+      /> */}
       <p>H1 - Titulo de la página 70 - 80 characters máximo</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'
@@ -207,7 +207,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         name="urlCategory"
         onChange={handleChange}
       />
-      <p>URL COUNTRY</p>
+      {/* <p>URL COUNTRY</p>
       <input
         placeholder='ej. estados-unidos'
         type="text"
@@ -220,7 +220,7 @@ const UpdateForm = ({ data, onUpdate }) => {
         type="text"
         name="urlProvince"
         onChange={handleChange}
-      />
+      /> */}
       <p>H1 - Titulo de la página 70 - 80 characters máximo</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'
