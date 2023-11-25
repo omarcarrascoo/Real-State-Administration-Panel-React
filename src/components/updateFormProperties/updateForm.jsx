@@ -594,55 +594,19 @@ Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
         placeholder='https://industrylux.com/en/mexico/queretaro/airport-area/'
         type="text"
         name="lanLink"
-
         onChange={handleChange}
       />
       <br />
       <h3>URL</h3>
       <p>URL Language (es/en)</p>
-      {/* <input
-        placeholder='en/es'
-        type="text"
-        name="lenguage"
-
-        onChange={handleChange}
-      /> */}
       <DropDownLan setLan={setLanUrl}/>
       <p>URL Country (mexico)</p>
-      {/* <input
-        placeholder='ej. mexico'
-        type="text"
-        name="urlCountry"
-        onChange={handleChange}
-
-      /> */}
       <DropDownCountry allCountries={true} lan={lenguage} setOptions= {setCountryUrl}/>
       <p>URL City (queretaro)</p>
-      {/* <input
-        placeholder='ej. queretaro'
-        type="text"
-        name="urlProvince"
-        onChange={handleChange}
-        
-      /> */}
       <DropDownCountry City={countryUrl} lan={lenguage} setOptions= {setProvinceUrl}/>
       <p>URL Development (zona-norte)</p>
-      {/* <input
-        placeholder='ej. monarca'
-        type="text"
-        name="urlCity"
-        onChange={handleChange}
-      /> */}
       <DropDownCountry Developmnet={proviceUrl} lan={lenguage}  setOptions= {setDevelopmentUrl} />
-
-      
       <p>URL Category (venta-lotes-y-terrenos-industriales)</p>
-      {/* <input
-        placeholder='ej. terrenos industriales'
-        type="text"
-        name="urlCategory"
-        onChange={handleChange}
-      /> */}
       <DropDownCategories lan= {lenguage} setOptions = {setCategoriesUrl}/>
       <p>URL Property (con-espuela-ferrocarril)</p>
       <input
@@ -654,12 +618,12 @@ Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
       <br />
       <h3>SEO</h3>
       <p>Title-tag (Titulo que aparece en la pestaña del explorador de 50 to 60 characters)</p>
-      <input
+      <textarea
         placeholder = "Titulo que aparece en la pestaña del explorador de 50 to 60 characters"
         type="text"
         name="titleTag"
         onChange={handleChange}
-      />
+      ></textarea>
       <p>Metadescription (Texto descriptivo que se ve en buscadores de 150 a 160 characters)</p>
       <textarea
         placeholder='Texto descriptivo para buscadores de 150 a 160 characters'
@@ -669,12 +633,12 @@ Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
         cols="30" rows="10"
       ></textarea>
       <p>Keywords (Palabras clave mas relevantes)</p>
-      <input
+      <textarea
         type="text"
         name="keyWords"
         placeholder='word1, word2, word3 ...'
         onChange={handleChange}
-      />
+      ></textarea>
       <p>H1 (Titulo de la página 70 - 80 characters máximo)</p>
       <input
         placeholder='Encabezado de la página 70 - 80 characters máximo'
@@ -743,11 +707,13 @@ Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
         type="text"
         name="telefono"
         onChange={handleChange}
+        value={"+524425950798"}
       />
       <p>WhatsApp (524425950798)</p>
       <input
         type="text"
         name="whatsApp"
+        value={524425950798}
         onChange={handleChange}
       />
       <p>Email (industrylux@industrylux.com)</p>
@@ -755,6 +721,8 @@ Reemplazar el Id del video: https://www.youtube.com/embed/_TIjDbMWG2Q?rel=0)</p>
         type="text"
         name="email"
         onChange={handleChange}
+        value={"industrylux@industrylux.com"}
+
       />
 
 
