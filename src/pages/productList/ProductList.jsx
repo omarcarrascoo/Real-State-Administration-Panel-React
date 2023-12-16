@@ -8,23 +8,35 @@ import { useEffect } from "react";
 import { userRequest } from "../../requestMethods";
 import axios from "axios";
 import StatusBtn from "../../components/statusBtn/StatusBtn";
+import { useSearchContext } from '../../context/searchContext';
 export default function ProductList() {
   const [users, setUsers] = useState([]);
+  const { searchResults } = useSearchContext();
   useEffect(() => {
-    const getUsers = async () => {
+  const getUsers = async () => {
   try {
     const res = await userRequest.get("industrialProperties");
-    const updatedUsers = res.data.map((user) => ({
-      id: user._id, // Assuming the id is available as _id
-      ...user,
-    }));
-    setUsers(updatedUsers);
+    if (searchResults.length === 0) {
+      const updatedUsers = res.data.map((user) => ({
+        id: user._id, 
+        ...user,
+      }));
+      setUsers(updatedUsers);
+    }else{
+      const updatedUsers = searchResults.map((user) => ({
+        id: user._id, 
+        ...user,
+      }));
+      setUsers(updatedUsers);
+    }
+    
+    
   } catch (error) {
     console.log(error);
   }
-};
+  };
     getUsers()
-  }, []);
+  }, [searchResults]);
   const handleDelete = async (id) => {
     console.log(id);
     try {
@@ -65,7 +77,7 @@ export default function ProductList() {
               className="productListDelete"
               onClick={() => handleDelete(params.row.id)}
             />
-            <StatusBtn/>
+            <StatusBtn propertyId={params.row.id} initialStatus={params.row.status} />
           </>
         );
       },

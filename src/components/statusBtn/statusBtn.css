@@ -3,7 +3,7 @@
     position: relative;
     display: inline-block;
     width: 60px;
-    height: 34px;
+    height: 28px;
     margin: 10px 10px;
   }
   
@@ -30,9 +30,9 @@
   .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
+    height: 20px;
+    width: 20px;
+    left: 10px;
     bottom: 4px;
     background-color: white;
     -webkit-transition: .4s;
@@ -55,7 +55,7 @@
   
   /* Rounded sliders */
   .slider.round {
-    border-radius: 34px;
+    border-radius: 30px;
   }
   
   .slider.round:before {
